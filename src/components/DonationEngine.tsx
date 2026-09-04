@@ -1,122 +1,52 @@
 'use client';
 
-import React, { useState } from 'react';
-
-const presetAmounts = [25, 50, 100, 250];
-
-const impactDescriptions: Record<number, string> = {
-  25: 'Underwrites curriculum design and student activity workbooks for future opening.',
-  50: 'Supports interactive engineering exhibit development and student lab pilot sessions.',
-  100: 'Powers hands-on robotics equipment and sponsored Title 1 admission endowments.',
-  250: 'Sponsors classroom outreach, educator curriculum guides, and pre-opening student pilots.',
-};
+import React from 'react';
 
 export default function DonationEngine() {
-  const [isMonthly, setIsMonthly] = useState(false);
-  const [selectedAmount, setSelectedAmount] = useState<number>(50);
-  const [customAmount, setCustomAmount] = useState<string>('');
-
-  const currentAmount = customAmount ? parseFloat(customAmount) || 0 : selectedAmount;
-
-  const getImpactStatement = (amt: number) => {
-    if (amt >= 250) return impactDescriptions[250];
-    if (amt >= 100) return impactDescriptions[100];
-    if (amt >= 50) return impactDescriptions[50];
-    if (amt >= 25) return impactDescriptions[25];
-    return `Powers our active development and future youth STEM mission in New York.`;
-  };
-
-  const handlePresetClick = (amount: number) => {
-    setSelectedAmount(amount);
-    setCustomAmount('');
-  };
-
-  const handleCustomChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCustomAmount(e.target.value);
-  };
-
   const zeffyUrl = "https://www.zeffy.com/embed/donation-form/donate-to-make-a-difference-14593?donate=true";
 
   return (
     <section className="donation-section" id="donate">
       <div className="container">
         <div className="section-header text-center">
-          <span className="section-tag">Philanthropic Support</span>
+          <span className="section-tag">100% Fee-Free Platform</span>
           <h2 className="section-title">Fuel the Next Generation of Innovators</h2>
           <p className="section-subtitle">
-            Philanthropic gifts power our foundation's active development, future exhibit engineering, and sponsored STEM admissions for public schools.
+            100% of your tax-deductible contribution directly supports our foundation's active development, future exhibit buildout, and sponsored Title 1 STEM admissions in New York.
           </p>
         </div>
 
-        <div className="donation-wrapper">
-          {/* Donation Frequency Toggle */}
-          <div className="donation-type-tabs">
-            <button 
-              className={`donation-type-tab ${!isMonthly ? 'active' : ''}`}
-              onClick={() => setIsMonthly(false)}
-            >
-              One-Time Contribution
-            </button>
-            <button 
-              className={`donation-type-tab ${isMonthly ? 'active' : ''}`}
-              onClick={() => setIsMonthly(true)}
-            >
-              Monthly Sustainer
-            </button>
-          </div>
-
-          {/* Preset Buttons */}
-          <div className="donation-presets-grid">
-            {presetAmounts.map((amt) => (
-              <button 
-                key={amt}
-                className={`donation-preset-btn ${selectedAmount === amt && !customAmount ? 'active' : ''}`}
-                onClick={() => handlePresetClick(amt)}
-              >
-                ${amt}
-              </button>
-            ))}
-          </div>
-
-          {/* Custom Amount */}
-          <div className="custom-donation-input-wrap">
-            <span className="custom-donation-currency">$</span>
-            <input 
-              type="number" 
-              className="custom-donation-input" 
-              placeholder="Or enter custom amount in USD"
-              min="5"
-              step="1"
-              value={customAmount}
-              onChange={handleCustomChange}
-            />
-          </div>
-
-          {/* Real-time Dynamic Impact Box */}
-          <div className="donation-impact-box">
-            <p>
-              <strong>Your Impact in Action:</strong><br />
-              <span className="impact-highlight">{getImpactStatement(currentAmount)}</span>
-            </p>
-          </div>
-
-          {/* Direct Live Zeffy Checkout CTA */}
-          <div style={{ marginTop: '24px' }}>
-            <a 
-              href={zeffyUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn btn-primary donation-submit-btn"
-              style={{ display: 'block', textAlign: 'center', fontSize: '1.1rem', padding: '16px' }}
-            >
-              Complete {isMonthly ? 'Monthly' : 'One-Time'} Donation of ${currentAmount > 0 ? currentAmount : '50'} via Zeffy &rarr;
-            </a>
-          </div>
-
-          <p className="donation-legal-note">
-            Federal Tax EIN: <strong>922822778</strong>. The New York Auto Experience Inc. is recognized by the IRS as an exempt public charity under Section 501(c)(3). 100% of your donation is tax-deductible.
-          </p>
+        {/* Embedded Official Zeffy Form (Direct Zero-Fee Giving) */}
+        <div style={{
+          maxWidth: '850px',
+          margin: '0 auto',
+          position: 'relative',
+          width: '100%',
+          minHeight: '650px',
+          borderRadius: '18px',
+          overflow: 'hidden',
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+          border: '1px solid var(--color-border)',
+          backgroundColor: '#FFFFFF'
+        }}>
+          <iframe 
+            title="Donation form powered by Zeffy" 
+            src={zeffyUrl} 
+            style={{
+              width: '100%',
+              minHeight: '650px',
+              height: '800px',
+              border: 'none',
+              borderRadius: '18px',
+              background: 'transparent'
+            }} 
+            allow="payment"
+          />
         </div>
+
+        <p className="donation-legal-note" style={{ textAlign: 'center', marginTop: '24px', color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>
+          Federal Tax EIN: <strong style={{ color: '#FFF' }}>922822778</strong> &bull; The New York Auto Experience Inc. is recognized by the IRS as an exempt public charity under Section 501(c)(3). 100% of your donation is tax-deductible.
+        </p>
 
         {/* Allocation Transparency Breakdown */}
         <div id="transparency" style={{ maxWidth: '840px', margin: '60px auto 0', paddingTop: '40px', borderTop: '1px solid var(--color-border)' }}>

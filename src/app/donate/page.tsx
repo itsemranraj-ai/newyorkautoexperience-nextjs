@@ -8,59 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default function DonatePage() {
-  const zeffyUrl = "https://www.zeffy.com/embed/donation-form/donate-to-make-a-difference-14593?donate=true";
-
   return (
     <>
-      {/* Header Banner */}
-      <section style={{ backgroundColor: 'var(--color-bg-subtle)', borderBottom: '1px solid var(--color-border)', padding: '60px 0 40px' }}>
-        <div className="container text-center">
-          <span className="section-tag">Empower Youth In Innovation</span>
-          <h1 className="section-title" style={{ fontSize: '3rem' }}>Fuel the Next Generation of Innovators</h1>
-          <p className="section-subtitle" style={{ maxWidth: '680px', margin: '0 auto' }}>
-            Contributions power our foundation's active development, future exhibit buildout, and sponsored STEM admissions for New York students upon opening.
-          </p>
-        </div>
-      </section>
-
-      {/* Main Interactive Donation Engine */}
+      {/* Main Interactive Zeffy Donation Engine & Transparency */}
       <DonationEngine />
-
-      {/* Embedded Live Zeffy Form Section */}
-      <section style={{ backgroundColor: 'var(--color-bg-main)', borderTop: '1px solid var(--color-border)', padding: '60px 0' }}>
-        <div className="container">
-          <div className="section-header text-center">
-            <span className="section-tag">Direct 100% Fee-Free Platform</span>
-            <h2 className="section-title">Give Directly via Zeffy</h2>
-            <p className="section-subtitle">
-              Zeffy is the only zero-fee donation platform for nonprofits, ensuring 100% of your gift supports our capital development and student STEM initiatives without platform deductions.
-            </p>
-          </div>
-
-          <div style={{
-            maxWidth: '850px',
-            margin: '0 auto',
-            background: 'var(--color-bg-card)',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '20px',
-            textAlign: 'center'
-          }}>
-            <iframe 
-              title="Donation Form - The New York Auto Experience"
-              src={zeffyUrl}
-              style={{
-                width: '100%',
-                minHeight: '650px',
-                border: 'none',
-                borderRadius: '8px',
-                backgroundColor: '#FFFFFF'
-              }}
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
 
       {/* Major Gifts & Wire Transfer FAQ */}
       <section style={{ backgroundColor: 'var(--color-bg-card)', borderTop: '1px solid var(--color-border)', padding: '60px 0' }}>
