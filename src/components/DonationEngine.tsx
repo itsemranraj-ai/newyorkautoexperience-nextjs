@@ -18,7 +18,7 @@ export default function DonationEngine({
         {isDedicatedPage ? (
           <div className="section-header text-center" style={{ marginBottom: '36px' }}>
             <span className="section-tag">501(c)(3) Public Charity &bull; EIN: {content.ein_number || '922822778'}</span>
-            <h1 className="section-title" style={{ fontSize: '2.8rem', marginTop: '12px' }}>
+            <h1 className="section-title page-hero-title" style={{ marginTop: '12px' }}>
               {content.donate_page_title || 'Fuel the Next Generation of Innovators'}
             </h1>
             <p className="section-subtitle" style={{ maxWidth: '720px', margin: '0 auto', fontSize: '1.05rem', lineHeight: 1.6 }}>
@@ -36,27 +36,15 @@ export default function DonationEngine({
         )}
 
         {/* Embedded Official Zeffy Secure Donation Form */}
-        <div style={{
-          maxWidth: '850px',
-          margin: '0 auto',
-          background: 'var(--color-bg-card)',
-          border: '1px solid var(--color-border)',
-          borderRadius: '18px',
-          padding: '16px',
-        }}>
-          <div style={{ position: 'relative', width: '100%', minHeight: '650px', borderRadius: '18px', overflow: 'hidden' }}>
+        <div className="zeffy-card-wrapper">
+          <div className="zeffy-embed-container">
             <iframe 
               title="Donation form powered by Zeffy" 
               src={zeffyUrl} 
-              style={{
-                width: '100%',
-                minHeight: '650px',
-                border: 'none',
-                borderRadius: '18px',
-                backgroundColor: '#FFFFFF',
-              }} 
+              className="zeffy-embed-frame"
               allow="payment"
               allowTransparency={true}
+              scrolling="no"
             />
           </div>
 
@@ -66,28 +54,28 @@ export default function DonationEngine({
         </div>
 
         {/* Allocation Transparency Breakdown */}
-        <div id="transparency" style={{ maxWidth: '840px', margin: '60px auto 0', paddingTop: '40px', borderTop: '1px solid var(--color-border)' }}>
+        <div id="transparency" style={{ maxWidth: '840px', margin: '48px auto 0', paddingTop: '36px', borderTop: '1px solid var(--color-border)' }}>
           <h3 style={{ fontSize: '1.6rem', marginBottom: '16px', textAlign: 'center', color: '#FFF' }}>
             How Your Donation Is Allocated
           </h3>
-          <p style={{ textAlign: 'center', color: 'var(--color-text-muted)', marginBottom: '32px', fontSize: '0.95rem' }}>
+          <p style={{ textAlign: 'center', color: 'var(--color-text-muted)', marginBottom: '28px', fontSize: '0.92rem', lineHeight: 1.6 }}>
             Because our commercial Experience Center subsidizes core facility operating overhead, 92 cents of every donated dollar goes directly into youth educational initiatives.
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
-            <div style={{ background: 'var(--color-bg-card)', border: '1px solid var(--color-border)', borderRadius: '8px', padding: '24px', textAlign: 'center' }}>
+          <div className="transparency-grid">
+            <div style={{ background: 'var(--color-bg-card)', border: '1px solid var(--color-border)', borderRadius: '8px', padding: '24px 20px', textAlign: 'center' }}>
               <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--color-primary)', marginBottom: '6px' }}>{content.alloc1_percent || '75%'}</div>
               <div style={{ fontWeight: 700, color: '#FFF', marginBottom: '4px' }}>{content.alloc1_title || 'Direct Student Admissions'}</div>
               <div style={{ fontSize: '0.82rem', color: 'var(--color-text-dim)' }}>{content.alloc1_desc || 'Free tickets & hands-on workshop materials for Title 1 public schools'}</div>
             </div>
 
-            <div style={{ background: 'var(--color-bg-card)', border: '1px solid var(--color-border)', borderRadius: '8px', padding: '24px', textAlign: 'center' }}>
+            <div style={{ background: 'var(--color-bg-card)', border: '1px solid var(--color-border)', borderRadius: '8px', padding: '24px 20px', textAlign: 'center' }}>
               <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--color-secondary)', marginBottom: '6px' }}>{content.alloc2_percent || '17%'}</div>
               <div style={{ fontWeight: 700, color: '#FFF', marginBottom: '4px' }}>{content.alloc2_title || 'School Bus Transportation'}</div>
               <div style={{ fontSize: '0.82rem', color: 'var(--color-text-dim)' }}>{content.alloc2_desc || 'Subsidizing transit costs for underserved districts across New York'}</div>
             </div>
 
-            <div style={{ background: 'var(--color-bg-card)', border: '1px solid var(--color-border)', borderRadius: '8px', padding: '24px', textAlign: 'center' }}>
+            <div style={{ background: 'var(--color-bg-card)', border: '1px solid var(--color-border)', borderRadius: '8px', padding: '24px 20px', textAlign: 'center' }}>
               <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--color-accent-amber)', marginBottom: '6px' }}>{content.alloc3_percent || '8%'}</div>
               <div style={{ fontWeight: 700, color: '#FFF', marginBottom: '4px' }}>{content.alloc3_title || 'Curriculum & Safety'}</div>
               <div style={{ fontSize: '0.82rem', color: 'var(--color-text-dim)' }}>{content.alloc3_desc || 'NGSS-aligned lesson packs, physics experiment gear, and laboratory safety equipment'}</div>

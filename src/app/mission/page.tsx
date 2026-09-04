@@ -40,7 +40,7 @@ export default async function MissionPage() {
               </div>
               <div className="hero-trust-row">
                 <span>In Partnership with <strong>New York Auto Museum</strong></span>
-                <span>&bull;</span>
+                <span className="separator">&bull;</span>
                 <span>Headquartered in <strong>New York, NY 10003</strong></span>
               </div>
             </div>
@@ -78,9 +78,9 @@ export default async function MissionPage() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', marginTop: '40px' }}>
+          <div className="pillars-grid">
             {/* Pillar 1 */}
-            <div className="exhibit-card" style={{ padding: '35px 30px' }}>
+            <div className="exhibit-card" style={{ padding: '28px 24px' }}>
               <div style={{ fontSize: '2.2rem', marginBottom: '15px' }}>🔬</div>
               <h3 style={{ fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '12px' }}>{content.pillar1_title}</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '15px' }}>
@@ -94,7 +94,7 @@ export default async function MissionPage() {
             </div>
 
             {/* Pillar 2 */}
-            <div className="exhibit-card" style={{ padding: '35px 30px' }}>
+            <div className="exhibit-card" style={{ padding: '28px 24px' }}>
               <div style={{ fontSize: '2.2rem', marginBottom: '15px' }}>💡</div>
               <h3 style={{ fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '12px' }}>{content.pillar2_title}</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '15px' }}>
@@ -108,7 +108,7 @@ export default async function MissionPage() {
             </div>
 
             {/* Pillar 3 */}
-            <div className="exhibit-card" style={{ padding: '35px 30px' }}>
+            <div className="exhibit-card" style={{ padding: '28px 24px' }}>
               <div style={{ fontSize: '2.2rem', marginBottom: '15px' }}>🏎️</div>
               <h3 style={{ fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '12px' }}>{content.pillar3_title}</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '15px' }}>
@@ -165,14 +165,7 @@ export default async function MissionPage() {
             </div>
           </div>
 
-          <div style={{
-            backgroundColor: 'var(--color-bg-card)',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '35px',
-            marginTop: '40px',
-            textAlign: 'center'
-          }}>
+          <div className="charter-callout-card">
             <h4 style={{ fontSize: '1.3rem', color: '#FFFFFF', marginBottom: '10px' }}>Why the Dual Charter Matters</h4>
             <p style={{ color: 'var(--color-text-muted)', maxWidth: '850px', margin: '0 auto', lineHeight: 1.7 }}>
               {content.why_dual_charter}
@@ -192,8 +185,8 @@ export default async function MissionPage() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', marginTop: '40px' }}>
-            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+          <div className="governance-grid">
+            <div style={{ background: 'var(--color-bg-main)', padding: '24px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
               <div style={{ color: 'var(--color-primary)', fontWeight: 700, marginBottom: '8px' }}>LEGAL STATUS</div>
               <div style={{ color: '#FFFFFF', fontWeight: 600 }}>{content.gov_card1_title}</div>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
@@ -201,7 +194,7 @@ export default async function MissionPage() {
               </p>
             </div>
 
-            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+            <div style={{ background: 'var(--color-bg-main)', padding: '24px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
               <div style={{ color: 'var(--color-secondary)', fontWeight: 700, marginBottom: '8px' }}>FEDERAL TAX ID</div>
               <div style={{ color: '#FFFFFF', fontWeight: 600 }}>{content.gov_card2_title}</div>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
@@ -209,7 +202,7 @@ export default async function MissionPage() {
               </p>
             </div>
 
-            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+            <div style={{ background: 'var(--color-bg-main)', padding: '24px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
               <div style={{ color: 'var(--color-accent-amber)', fontWeight: 700, marginBottom: '8px' }}>FINANCIAL AUDIT</div>
               <div style={{ color: '#FFFFFF', fontWeight: 600 }}>{content.gov_card3_title}</div>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
@@ -217,7 +210,7 @@ export default async function MissionPage() {
               </p>
             </div>
 
-            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+            <div style={{ background: 'var(--color-bg-main)', padding: '24px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
               <div style={{ color: 'var(--color-success)', fontWeight: 700, marginBottom: '8px' }}>FIDUCIARY OVERSIGHT</div>
               <div style={{ color: '#FFFFFF', fontWeight: 600 }}>{content.gov_card4_title}</div>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
@@ -226,8 +219,8 @@ export default async function MissionPage() {
             </div>
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '48px' }}>
-            <Link href="/donate" className="btn btn-primary btn-lg" style={{ marginRight: '16px' }}>
+          <div className="mission-cta-group" style={{ marginTop: '48px' }}>
+            <Link href="/donate" className="btn btn-primary btn-lg">
               Support Our Educational Mission
             </Link>
             <Link href="/#stem-portal" className="btn btn-secondary btn-lg">

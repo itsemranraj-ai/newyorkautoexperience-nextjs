@@ -41,14 +41,7 @@ export default function DualCharterSection({ content = defaultSiteContent }: { c
         </div>
 
         {/* Why it matters callout */}
-        <div style={{
-          backgroundColor: 'var(--color-bg-card)',
-          border: '1px solid var(--color-border)',
-          borderRadius: 'var(--radius-lg)',
-          padding: '35px',
-          marginTop: '40px',
-          textAlign: 'center'
-        }}>
+        <div className="charter-callout-card">
           <h4 style={{ fontSize: '1.3rem', color: '#FFFFFF', marginBottom: '10px' }}>
             Why This Model Revolutionizes Educational Nonprofits
           </h4>

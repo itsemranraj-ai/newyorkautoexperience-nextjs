@@ -18,7 +18,7 @@ export default async function ExhibitsPage() {
       <section style={{ backgroundColor: 'var(--color-bg-subtle)', borderBottom: '1px solid var(--color-border)', padding: '60px 0' }}>
         <div className="container text-center">
           <span className="section-tag">Interactive Catalog</span>
-          <h1 className="section-title" style={{ fontSize: '3rem' }}>{content.exhibits_page_title}</h1>
+          <h1 className="section-title page-hero-title">{content.exhibits_page_title}</h1>
           <p className="section-subtitle" style={{ maxWidth: '700px', margin: '0 auto' }}>
             {content.exhibits_page_subtitle}
           </p>

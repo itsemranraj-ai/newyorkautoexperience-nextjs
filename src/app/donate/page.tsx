@@ -27,8 +27,8 @@ export default async function DonatePage() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', maxWidth: '1000px', margin: '40px auto 0' }}>
-            <div style={{ background: 'var(--color-bg-main)', border: '1px solid var(--color-border)', borderRadius: '8px', padding: '28px' }}>
+          <div className="giving-methods-grid">
+            <div style={{ background: 'var(--color-bg-main)', border: '1px solid var(--color-border)', borderRadius: '8px', padding: '24px 20px' }}>
               <h4 style={{ color: '#FFFFFF', fontSize: '1.2rem', marginBottom: '8px' }}>Check by Mail</h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
                 {content.check_mail_text}

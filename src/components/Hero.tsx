@@ -29,7 +29,7 @@ export default function Hero({ content = defaultSiteContent }: { content?: SiteC
             </div>
             <div className="hero-trust-row">
               <span>Brought to you in partnership with <strong>New York Auto Museum</strong></span>
-              <span>&bull;</span>
+              <span className="separator">&bull;</span>
               <span>EIN: <strong>{content.ein_number}</strong></span>
             </div>
           </div>
