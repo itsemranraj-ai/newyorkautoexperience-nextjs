@@ -1,9 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { SiteContent, defaultSiteContent } from '@/lib/wordpress';
-
-const presetAmounts = [25, 50, 100, 250];
 
 export default function DonationEngine({ 
   content = defaultSiteContent,
@@ -12,43 +10,13 @@ export default function DonationEngine({
   content?: SiteContent;
   isDedicatedPage?: boolean;
 }) {
-  const [isMonthly, setIsMonthly] = useState(false);
-  const [selectedAmount, setSelectedAmount] = useState<number>(50);
-  const [customAmount, setCustomAmount] = useState<string>('');
-
-  const currentAmount = customAmount ? parseFloat(customAmount) || 0 : selectedAmount;
-
-  const impactDescriptions: Record<number, string> = {
-    25: content.impact_tier_25 || 'Underwrites 1 Title 1 student admission and hands-on STEM lab notebook.',
-    50: content.impact_tier_50 || 'Sponsors 2 students complete immersive STEM lab experience and guided engineering session.',
-    100: content.impact_tier_100 || 'Funds full interactive workshop materials and robotics kit for an entire student group.',
-    250: content.impact_tier_250 || 'Sponsors an entire classroom bus transit grant and provides teacher follow-up curriculum.',
-  };
-
-  const getImpactStatement = (amt: number) => {
-    if (amt >= 250) return impactDescriptions[250];
-    if (amt >= 100) return impactDescriptions[100];
-    if (amt >= 50) return impactDescriptions[50];
-    if (amt >= 25) return impactDescriptions[25];
-    return 'Provides direct support to our youth STEM education mission in New York.';
-  };
-
-  const handlePresetClick = (amount: number) => {
-    setSelectedAmount(amount);
-    setCustomAmount('');
-  };
-
-  const handleCustomChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCustomAmount(e.target.value);
-  };
-
   const zeffyUrl = content.zeffy_embed_url || 'https://www.zeffy.com/embed/donation-form/donate-to-make-a-difference-14593?donate=true';
 
   return (
     <section className="donation-section" id="donate" style={isDedicatedPage ? { paddingTop: '60px' } : undefined}>
       <div className="container">
         {isDedicatedPage ? (
-          <div className="section-header text-center" style={{ marginBottom: '40px' }}>
+          <div className="section-header text-center" style={{ marginBottom: '36px' }}>
             <span className="section-tag">501(c)(3) Public Charity &bull; EIN: {content.ein_number || '922822778'}</span>
             <h1 className="section-title" style={{ fontSize: '2.8rem', marginTop: '12px' }}>
               {content.donate_page_title || 'Fuel the Next Generation of Innovators'}
@@ -58,81 +26,41 @@ export default function DonationEngine({
             </p>
           </div>
         ) : (
-          <div className="section-header text-center">
+          <div className="section-header text-center" style={{ marginBottom: '36px' }}>
             <span className="section-tag">Philanthropic Support</span>
             <h2 className="section-title">{content.donate_page_title || 'Fuel the Next Generation of Innovators'}</h2>
             <p className="section-subtitle">
-              Every dollar directly provides free museum admissions, bus transportation, and hands-on lab kits for under-resourced schools.
+              {content.donate_page_subtitle || 'Every dollar directly provides free museum admissions, bus transportation, and hands-on lab kits for under-resourced schools.'}
             </p>
           </div>
         )}
 
-        <div className="donation-wrapper">
-          {/* Donation Frequency Toggle */}
-          <div className="donation-type-tabs">
-            <button 
-              className={`donation-type-tab ${!isMonthly ? 'active' : ''}`}
-              onClick={() => setIsMonthly(false)}
-            >
-              One-Time Contribution
-            </button>
-            <button 
-              className={`donation-type-tab ${isMonthly ? 'active' : ''}`}
-              onClick={() => setIsMonthly(true)}
-            >
-              Monthly Sustainer
-            </button>
-          </div>
-
-          {/* Preset Buttons */}
-          <div className="donation-presets-grid">
-            {presetAmounts.map((amt) => (
-              <button 
-                key={amt}
-                className={`donation-preset-btn ${selectedAmount === amt && !customAmount ? 'active' : ''}`}
-                onClick={() => handlePresetClick(amt)}
-              >
-                ${amt}
-              </button>
-            ))}
-          </div>
-
-          {/* Custom Amount */}
-          <div className="custom-donation-input-wrap">
-            <span className="custom-donation-currency">$</span>
-            <input 
-              type="number" 
-              className="custom-donation-input" 
-              placeholder="Or enter custom amount in USD"
-              min="5"
-              step="1"
-              value={customAmount}
-              onChange={handleCustomChange}
+        {/* Embedded Official Zeffy Secure Donation Form */}
+        <div style={{
+          maxWidth: '850px',
+          margin: '0 auto',
+          background: 'var(--color-bg-card)',
+          border: '1px solid var(--color-border)',
+          borderRadius: '18px',
+          padding: '16px',
+        }}>
+          <div style={{ position: 'relative', width: '100%', minHeight: '650px', borderRadius: '18px', overflow: 'hidden' }}>
+            <iframe 
+              title="Donation form powered by Zeffy" 
+              src={zeffyUrl} 
+              style={{
+                width: '100%',
+                minHeight: '650px',
+                border: 'none',
+                borderRadius: '18px',
+                backgroundColor: '#FFFFFF',
+              }} 
+              allow="payment"
+              allowTransparency={true}
             />
           </div>
 
-          {/* Real-time Dynamic Impact Box */}
-          <div className="donation-impact-box">
-            <p>
-              <strong>Your Impact in Action:</strong><br />
-              <span className="impact-highlight">{getImpactStatement(currentAmount)}</span>
-            </p>
-          </div>
-
-          {/* Direct Live Zeffy Checkout CTA */}
-          <div style={{ marginTop: '24px' }}>
-            <a 
-              href={zeffyUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn btn-primary donation-submit-btn"
-              style={{ display: 'block', textAlign: 'center', fontSize: '1.1rem', padding: '16px' }}
-            >
-              Complete {isMonthly ? 'Monthly' : 'One-Time'} Donation of ${currentAmount > 0 ? currentAmount : '50'} via Zeffy &rarr;
-            </a>
-          </div>
-
-          <p className="donation-legal-note">
+          <p className="donation-legal-note" style={{ marginTop: '16px', textAlign: 'center' }}>
             Federal Tax EIN: <strong>{content.ein_number || '922822778'}</strong>. The New York Auto Experience Inc. is recognized by the IRS as an exempt public charity under Section 501(c)(3). 100% of your donation is tax-deductible.
           </p>
         </div>

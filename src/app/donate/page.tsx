@@ -10,50 +10,13 @@ export const metadata: Metadata = {
 
 export default async function DonatePage() {
   const content = await getSiteContent();
-  const zeffyUrl = content.zeffy_embed_url || 'https://www.zeffy.com/embed/donation-form/donate-to-make-a-difference-14593?donate=true';
 
   return (
     <>
-      {/* 1. Main Interactive Donation Experience (No Duplicate Header) */}
+      {/* 1. Main Interactive Donation Experience Powered by Zeffy */}
       <DonationEngine content={content} isDedicatedPage={true} />
 
-      {/* 2. Embedded Live Zeffy Form Section */}
-      <section style={{ backgroundColor: 'var(--color-bg-main)', borderTop: '1px solid var(--color-border)', padding: '60px 0' }}>
-        <div className="container">
-          <div className="section-header text-center">
-            <span className="section-tag">Direct 100% Fee-Free Platform</span>
-            <h2 className="section-title">Give Directly via Zeffy</h2>
-            <p className="section-subtitle">
-              Zeffy is the only zero-fee donation platform for nonprofits, ensuring 100% of your gift reaches our student STEM programs.
-            </p>
-          </div>
-
-          <div style={{
-            maxWidth: '850px',
-            margin: '0 auto',
-            background: 'var(--color-bg-card)',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '20px',
-            textAlign: 'center'
-          }}>
-            <iframe 
-              title="Donation Form - The New York Auto Experience"
-              src={zeffyUrl}
-              style={{
-                width: '100%',
-                minHeight: '650px',
-                border: 'none',
-                borderRadius: '8px',
-                backgroundColor: '#FFFFFF'
-              }}
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Major Gifts & Wire Transfer FAQ */}
+      {/* 2. Major Gifts & Wire Transfer FAQ */}
       <section style={{ backgroundColor: 'var(--color-bg-card)', borderTop: '1px solid var(--color-border)', padding: '60px 0' }}>
         <div className="container">
           <div className="section-header text-center">
