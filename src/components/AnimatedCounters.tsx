@@ -1,19 +1,26 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { SiteContent, defaultSiteContent } from '@/lib/wordpress';
 
-export default function AnimatedCounters({ content = defaultSiteContent }: { content?: SiteContent }) {
+interface MetricItem {
+  target: number;
+  label: string;
+  subtext: string;
+  prefix?: string;
+  suffix?: string;
+  accentClass?: string;
+}
+
+const metrics: MetricItem[] = [
+  { target: 2000000, label: 'Students Targeted', subtext: 'Comprehensive STEM outreach planned across America', suffix: '+', accentClass: 'accent-red' },
+  { target: 500000, label: 'Projected Free Admissions', subtext: 'Annual sponsored access targeted for Title 1 schools', suffix: '+' },
+  { target: 15000000, label: 'Projected Annual Impact', subtext: 'Underwritten educational value upon full operations', prefix: '$', accentClass: 'accent-blue' },
+  { target: 12, label: 'Interactive Stations Planned', subtext: 'From autonomous AI navigation to EV powertrains', suffix: '+', accentClass: 'accent-amber' }
+];
+
+export default function AnimatedCounters() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
-
-  const metrics = [
-    { target: Number(content.kpi1_target) || 2000000, label: content.kpi1_label, subtext: content.kpi1_subtext, suffix: '+', accentClass: 'accent-red' },
-    { target: Number(content.kpi2_target) || 500000, label: content.kpi2_label, subtext: content.kpi2_subtext, suffix: '+' },
-    { target: Number(content.kpi3_target) || 15000000, label: content.kpi3_label, subtext: content.kpi3_subtext, prefix: '$', accentClass: 'accent-blue' },
-    { target: Number(content.kpi4_target) || 12, label: content.kpi4_label, subtext: content.kpi4_subtext, suffix: '+', accentClass: 'accent-amber' }
-  ];
-
   const [counts, setCounts] = useState<number[]>(metrics.map(() => 0));
 
   useEffect(() => {

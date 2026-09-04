@@ -4,9 +4,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { SiteContent, defaultSiteContent } from '@/lib/wordpress';
 
-export default function Header({ content = defaultSiteContent }: { content?: SiteContent }) {
+export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
@@ -20,12 +19,17 @@ export default function Header({ content = defaultSiteContent }: { content?: Sit
 
   return (
     <>
-      {/* 1. Top Announcement Bar */}
+      {/* 1. Flashing / Pulsing Coming Soon Banner */}
       <div className="announcement-bar">
-        <span className="badge-pill">{content.announcement_badge}</span>
-        <span>{content.announcement_text}</span>
-        <Link href={content.announcement_link || '/#stem-portal'} style={{ color: '#38BDF8', fontWeight: 600, marginLeft: '8px' }}>
-          Learn More &rarr;
+        <span className="flashing-badge">
+          <span className="pulse-dot"></span>
+          COMING SOON
+        </span>
+        <span className="announcement-text">
+          <strong>Physical Experience Center In Active Development</strong> &bull; Opening in New York City &bull; Priority School Pre-Registration Open
+        </span>
+        <Link href="/#stem-portal" className="announcement-link">
+          Pre-Register Your School &rarr;
         </Link>
       </div>
 
@@ -65,10 +69,10 @@ export default function Header({ content = defaultSiteContent }: { content?: Sit
             </ul>
             <div className="header-actions">
               <Link href="/#stem-portal" className="btn btn-secondary btn-sm" onClick={() => setMobileOpen(false)}>
-                {content.header_btn_visit || 'Plan School Visit'}
+                Plan School Visit
               </Link>
               <Link href="/donate" className="btn btn-primary btn-sm" onClick={() => setMobileOpen(false)}>
-                {content.header_btn_donate || 'Donate Now'}
+                Donate Now
               </Link>
             </div>
           </nav>

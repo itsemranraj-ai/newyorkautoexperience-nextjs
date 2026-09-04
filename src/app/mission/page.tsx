@@ -3,16 +3,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import AnimatedCounters from '@/components/AnimatedCounters';
-import { getSiteContent } from '@/lib/wordpress';
 
 export const metadata: Metadata = {
   title: 'Our Mission of Impact & Dual Charter | The New York Auto Experience Inc.',
   description: 'Learn about our 501(c)(3) mission to educate, enlighten, and entertain 2 million students through automotive STEM education in partnership with the New York Auto Museum.',
 };
 
-export default async function MissionPage() {
-  const content = await getSiteContent();
-
+export default function MissionPage() {
   return (
     <>
       {/* Hero Section */}
@@ -22,13 +19,13 @@ export default async function MissionPage() {
             <div className="hero-content">
               <div className="hero-tag">
                 <span className="hero-tag-dot"></span>
-                {content.mission_hero_tag}
+                501(c)(3) Public Charity &bull; EIN: 922822778
               </div>
               <h1 className="hero-title">
-                {content.mission_hero_title}
+                Our Mission of <span className="highlight">Impact</span> &amp; Inspiration.
               </h1>
-              <p className="hero-description" style={{ whiteSpace: 'pre-line' }}>
-                {content.mission_hero_quote}
+              <p className="hero-description">
+                "The mission of the New York Auto Experience Inc. Nonprofit is to create a world-class STEM based education experience for millions of students across America. These automotive based experiences are designed to <strong>educate, enlighten and entertain</strong>."
               </p>
               <div className="hero-cta-group">
                 <a href="#three-pillars" className="btn btn-primary btn-lg">
@@ -40,7 +37,7 @@ export default async function MissionPage() {
               </div>
               <div className="hero-trust-row">
                 <span>In Partnership with <strong>New York Auto Museum</strong></span>
-                <span className="separator">&bull;</span>
+                <span>&bull;</span>
                 <span>Headquartered in <strong>New York, NY 10003</strong></span>
               </div>
             </div>
@@ -65,7 +62,7 @@ export default async function MissionPage() {
       </section>
 
       {/* Real-time Impact Metrics */}
-      <AnimatedCounters content={content} />
+      <AnimatedCounters />
 
       {/* The Three Core Pillars */}
       <section className="section-padding" id="three-pillars" style={{ backgroundColor: 'var(--color-bg-card)' }}>
@@ -78,13 +75,13 @@ export default async function MissionPage() {
             </p>
           </div>
 
-          <div className="pillars-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', marginTop: '40px' }}>
             {/* Pillar 1 */}
-            <div className="exhibit-card" style={{ padding: '28px 24px' }}>
+            <div className="exhibit-card" style={{ padding: '35px 30px' }}>
               <div style={{ fontSize: '2.2rem', marginBottom: '15px' }}>🔬</div>
-              <h3 style={{ fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '12px' }}>{content.pillar1_title}</h3>
+              <h3 style={{ fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '12px' }}>1. Educate</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '15px' }}>
-                {content.pillar1_desc}
+                Providing structured, hands-on STEM curriculum aligned with state physics and engineering standards. Students explore aerodynamics, regenerative electric powertrains, sensor fusion, and crash-test physics firsthand.
               </p>
               <ul style={{ color: '#FFFFFF', fontSize: '0.85rem', lineHeight: 1.8, paddingLeft: '20px' }}>
                 <li>Hands-on physics and mechanics labs</li>
@@ -94,11 +91,11 @@ export default async function MissionPage() {
             </div>
 
             {/* Pillar 2 */}
-            <div className="exhibit-card" style={{ padding: '28px 24px' }}>
+            <div className="exhibit-card" style={{ padding: '35px 30px' }}>
               <div style={{ fontSize: '2.2rem', marginBottom: '15px' }}>💡</div>
-              <h3 style={{ fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '12px' }}>{content.pillar2_title}</h3>
+              <h3 style={{ fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '12px' }}>2. Enlighten</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '15px' }}>
-                {content.pillar2_desc}
+                Opening doors to modern high-paying technological and engineering careers for youth who have never been exposed to the automotive innovation ecosystem. Mentorship programs with automotive engineers and curators.
               </p>
               <ul style={{ color: '#FFFFFF', fontSize: '0.85rem', lineHeight: 1.8, paddingLeft: '20px' }}>
                 <li>Direct pathways to STEM engineering careers</li>
@@ -108,11 +105,11 @@ export default async function MissionPage() {
             </div>
 
             {/* Pillar 3 */}
-            <div className="exhibit-card" style={{ padding: '28px 24px' }}>
+            <div className="exhibit-card" style={{ padding: '35px 30px' }}>
               <div style={{ fontSize: '2.2rem', marginBottom: '15px' }}>🏎️</div>
-              <h3 style={{ fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '12px' }}>{content.pillar3_title}</h3>
+              <h3 style={{ fontSize: '1.5rem', color: '#FFFFFF', marginBottom: '12px' }}>3. Entertain</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '15px' }}>
-                {content.pillar3_desc}
+                Making education unforgettable through immersive multi-sensory experiences, historical racing showcases, tactile simulator benches, and theatrical demonstrations that ignite lifelong passion.
               </p>
               <ul style={{ color: '#FFFFFF', fontSize: '0.85rem', lineHeight: 1.8, paddingLeft: '20px' }}>
                 <li>Dynamic motion simulators &amp; VR stations</li>
@@ -129,18 +126,18 @@ export default async function MissionPage() {
         <div className="container">
           <div className="section-header text-center">
             <span className="section-tag">Innovative Sustainability Model</span>
-            <h2 className="section-title">{content.dual_charter_title}</h2>
+            <h2 className="section-title">The Dual Charter Synergy</h2>
             <p className="section-subtitle">
-              {content.dual_charter_subtitle}
+              How our commercial Experience Center and 501(c)(3) nonprofit work together to fuel everlasting educational impact.
             </p>
           </div>
 
           <div className="dual-charter-grid">
             <div className="charter-card commercial">
               <div className="charter-badge">Commercial Entity</div>
-              <h3 className="charter-title">{content.comm_card_title}</h3>
+              <h3 className="charter-title">Metropolitan New York Auto Experience Center</h3>
               <p className="charter-text">
-                {content.comm_card_desc}
+                A world-class commercial automotive destination in the greater New York metropolitan area. Drives self-sustaining revenue through public admissions, dynamic simulators, motorsport showcases, and corporate hospitality.
               </p>
               <div style={{ marginTop: '25px', paddingTop: '20px', borderTop: '1px solid var(--color-border)' }}>
                 <strong style={{ color: '#FFFFFF', fontSize: '0.9rem' }}>Primary Role:</strong>
@@ -152,23 +149,30 @@ export default async function MissionPage() {
 
             <div className="charter-card nonprofit">
               <div className="charter-badge nonprofit">501(c)(3) Nonprofit Public Charity</div>
-              <h3 className="charter-title">{content.nonprofit_card_title}</h3>
+              <h3 className="charter-title">The New York Auto Experience Inc.</h3>
               <p className="charter-text">
-                {content.nonprofit_card_desc}
+                The dedicated educational foundation chartered to transform automotive science into accessible STEM curricula. Dedicated to ensuring that lack of personal financial means never prevents a curious child from learning.
               </p>
               <div style={{ marginTop: '25px', paddingTop: '20px', borderTop: '1px solid var(--color-border)' }}>
                 <strong style={{ color: '#FFFFFF', fontSize: '0.9rem' }}>Primary Role:</strong>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '4px' }}>
-                  Grants 500,000+ free admissions annually and delivers accredited STEM field trip experiences.
+                  Targeting 500,000+ annual sponsored admissions and accredited STEM field trip experiences upon grand opening.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="charter-callout-card">
+          <div style={{
+            backgroundColor: 'var(--color-bg-card)',
+            border: '1px solid var(--color-border)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '35px',
+            marginTop: '40px',
+            textAlign: 'center'
+          }}>
             <h4 style={{ fontSize: '1.3rem', color: '#FFFFFF', marginBottom: '10px' }}>Why the Dual Charter Matters</h4>
             <p style={{ color: 'var(--color-text-muted)', maxWidth: '850px', margin: '0 auto', lineHeight: 1.7 }}>
-              {content.why_dual_charter}
+              As an agile cultural foundation in our active developmental stage, our strategic partnership with the commercial Experience Center is designed to eliminate future redundant facility overhead. Philanthropic contributions directly accelerate site planning, interactive exhibition buildout, and the creation of accredited STEM curricula that will welcome public school students upon grand opening.
             </p>
           </div>
         </div>
@@ -185,42 +189,42 @@ export default async function MissionPage() {
             </p>
           </div>
 
-          <div className="governance-grid">
-            <div style={{ background: 'var(--color-bg-main)', padding: '24px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', marginTop: '40px' }}>
+            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
               <div style={{ color: 'var(--color-primary)', fontWeight: 700, marginBottom: '8px' }}>LEGAL STATUS</div>
-              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>{content.gov_card1_title}</div>
+              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>501(c)(3) Public Charity</div>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
-                {content.gov_card1_desc}
+                Organized exclusively for educational and charitable purposes under the US Internal Revenue Code.
               </p>
             </div>
 
-            <div style={{ background: 'var(--color-bg-main)', padding: '24px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
               <div style={{ color: 'var(--color-secondary)', fontWeight: 700, marginBottom: '8px' }}>FEDERAL TAX ID</div>
-              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>{content.gov_card2_title}</div>
+              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>EIN: 922822778</div>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
-                {content.gov_card2_desc}
+                All contributions are tax-deductible to the full extent of the law for individuals and corporations.
               </p>
             </div>
 
-            <div style={{ background: 'var(--color-bg-main)', padding: '24px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
               <div style={{ color: 'var(--color-accent-amber)', fontWeight: 700, marginBottom: '8px' }}>FINANCIAL AUDIT</div>
-              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>{content.gov_card3_title}</div>
+              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>Public Form 990</div>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
-                {content.gov_card3_desc}
+                Annual independent financial audits and public IRS Form 990 disclosures published for total donor trust.
               </p>
             </div>
 
-            <div style={{ background: 'var(--color-bg-main)', padding: '24px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
               <div style={{ color: 'var(--color-success)', fontWeight: 700, marginBottom: '8px' }}>FIDUCIARY OVERSIGHT</div>
-              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>{content.gov_card4_title}</div>
+              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>Independent Board</div>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
-                {content.gov_card4_desc}
+                Governed by an independent Board of Trustees representing automotive pioneers, educators, and civic leaders.
               </p>
             </div>
           </div>
 
-          <div className="mission-cta-group" style={{ marginTop: '48px' }}>
-            <Link href="/donate" className="btn btn-primary btn-lg">
+          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+            <Link href="/donate" className="btn btn-primary btn-lg" style={{ marginRight: '16px' }}>
               Support Our Educational Mission
             </Link>
             <Link href="/#stem-portal" className="btn btn-secondary btn-lg">

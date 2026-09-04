@@ -5,19 +5,16 @@ import ExhibitShowcase from '@/components/ExhibitShowcase';
 import DualCharterSection from '@/components/DualCharterSection';
 import StemPortal from '@/components/StemPortal';
 import DonationEngine from '@/components/DonationEngine';
-import { getSiteContent } from '@/lib/wordpress';
 
-export default async function HomePage() {
-  const content = await getSiteContent();
-
+export default function HomePage() {
   return (
     <>
-      <Hero content={content} />
-      <AnimatedCounters content={content} />
+      <Hero />
+      <AnimatedCounters />
       <ExhibitShowcase />
-      <DualCharterSection content={content} />
-      <StemPortal content={content} />
-      <DonationEngine content={content} />
+      <DualCharterSection />
+      <StemPortal />
+      <DonationEngine />
     </>
   );
 }

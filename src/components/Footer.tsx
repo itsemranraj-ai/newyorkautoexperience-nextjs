@@ -3,9 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { SiteContent, defaultSiteContent } from '@/lib/wordpress';
 
-export default function Footer({ content = defaultSiteContent }: { content?: SiteContent }) {
+export default function Footer() {
   const handleNewsletter = (e: React.FormEvent) => {
     e.preventDefault();
     alert('Thank you for subscribing to The New York Auto Experience updates!');
@@ -27,12 +26,12 @@ export default function Footer({ content = defaultSiteContent }: { content?: Sit
               />
             </Link>
             <p>
-              {content.footer_desc}
+              The New York Auto Experience Inc. is a registered 501(c)(3) public charity uniting automotive science, clean technology, and STEM education to ignite curiosity in the next generation.
             </p>
             <div style={{ marginTop: '16px', fontSize: '0.85rem', color: 'var(--color-text-dim)', lineHeight: 1.6 }}>
               <strong style={{ color: '#FFFFFF' }}>Headquarters:</strong><br />
-              {content.headquarters_addr}<br />
-              Email: <a href={`mailto:${content.official_email}`} style={{ color: 'var(--color-primary)' }}>{content.official_email}</a>
+              767 Broadway #1671, New York, NY 10003, USA<br />
+              Email: <a href="mailto:info@newyorkautoexperience.org" style={{ color: 'var(--color-primary)' }}>info@newyorkautoexperience.org</a>
             </div>
           </div>
 
@@ -55,7 +54,7 @@ export default function Footer({ content = defaultSiteContent }: { content?: Sit
               <li><Link href="/mission">Our Mission</Link></li>
               <li><Link href="/#stem-portal">For Educators</Link></li>
               <li><Link href="/donate">Donate &amp; Support</Link></li>
-              <li><a href={content.partner_museum_url || "https://newyorkautomuseum.com/"} target="_blank" rel="noopener noreferrer">New York Auto Museum</a></li>
+              <li><a href="https://newyorkautomuseum.com/" target="_blank" rel="noopener noreferrer">New York Auto Museum</a></li>
               <li><Link href="/donate#transparency">Annual Impact Report</Link></li>
             </ul>
           </div>
@@ -83,7 +82,7 @@ export default function Footer({ content = defaultSiteContent }: { content?: Sit
           <div className="footer-legal-badge">
             <span>&copy; 2026 The New York Auto Experience Inc. All rights reserved.</span>
             <span>&bull;</span>
-            <span>501(c)(3) Nonprofit EIN: <strong>{content.ein_number}</strong></span>
+            <span>501(c)(3) Nonprofit EIN: <strong>922822778</strong></span>
           </div>
           <div style={{ display: 'flex', gap: '20px' }}>
             <Link href="/mission" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Our Mission</Link>

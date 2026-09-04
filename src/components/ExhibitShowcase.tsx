@@ -127,7 +127,7 @@ export const exhibitsData: Exhibit[] = [
   }
 ];
 
-export default function ExhibitShowcase({ hideHeader = false }: { hideHeader?: boolean }) {
+export default function ExhibitShowcase() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'future-tech' | 'engineering' | 'racing'>('all');
   const [selectedExhibit, setSelectedExhibit] = useState<Exhibit | null>(null);
 
@@ -138,15 +138,13 @@ export default function ExhibitShowcase({ hideHeader = false }: { hideHeader?: b
   return (
     <section className="exhibits-section" id="exhibits">
       <div className="container">
-        {!hideHeader && (
-          <div className="section-header text-center">
-            <span className="section-tag">Hands-On Learning Stations</span>
-            <h2 className="section-title">Discover Our World-Class Exhibits</h2>
-            <p className="section-subtitle">
-              12 immersive zones bringing physics, software, clean energy, and motorsport heritage to life.
-            </p>
-          </div>
-        )}
+        <div className="section-header text-center">
+          <span className="section-tag">Hands-On Learning Stations</span>
+          <h2 className="section-title">Discover Our World-Class Exhibits</h2>
+          <p className="section-subtitle">
+            12 immersive zones bringing physics, software, clean energy, and motorsport heritage to life.
+          </p>
+        </div>
 
         {/* Filter Bar */}
         <div className="exhibits-filter-bar">

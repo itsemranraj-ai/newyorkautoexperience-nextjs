@@ -6,10 +6,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'newyorkautoexperience.org',
       },
-      {
-        protocol: 'https',
-        hostname: 'itsemranraj.com',
-      },
     ],
   },
 };
