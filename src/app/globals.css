@@ -1258,11 +1258,15 @@ button, input, select, textarea {
     top: 70px;
     left: 0;
     right: 0;
-    background-color: var(--color-bg-main);
-    border-bottom: 1px solid var(--color-border);
+    background-color: #0E131F !important;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 2px solid var(--color-border-bright);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.95);
     flex-direction: column;
-    padding: 24px;
-    gap: 20px;
+    padding: 24px 20px;
+    gap: 16px;
+    z-index: 1001;
   }
   .main-nav.mobile-open {
     display: flex;
@@ -1270,10 +1274,56 @@ button, input, select, textarea {
   .nav-links {
     flex-direction: column;
     width: 100%;
-    gap: 16px;
+    gap: 8px;
+  }
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links a {
+    color: #FFFFFF !important;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 12px 16px;
+    display: block;
+    width: 100%;
+    border-radius: var(--radius-sm);
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    background-color: rgba(225, 29, 72, 0.2) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-text-white) !important;
+  }
+  .header-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 8px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .header-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 14px;
+    font-size: 0.95rem;
   }
   .mobile-nav-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: #FFFFFF;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
   }
   .hero-section {
     padding: 36px 0 45px;
