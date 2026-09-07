@@ -11,17 +11,6 @@ export const metadata: Metadata = {
 export default function ExhibitsPage() {
   return (
     <>
-      {/* Exhibits Hero Banner */}
-      <section style={{ backgroundColor: 'var(--color-bg-subtle)', borderBottom: '1px solid var(--color-border)', padding: '60px 0' }}>
-        <div className="container text-center">
-          <span className="section-tag">Interactive Catalog</span>
-          <h1 className="section-title" style={{ fontSize: '3rem' }}>Exhibits &amp; STEM Demonstrations</h1>
-          <p className="section-subtitle" style={{ maxWidth: '700px', margin: '0 auto' }}>
-            From the inner mechanics of combustion and electric powertrains to advanced artificial intelligence and aerodynamics, discover 12 permanent learning stations.
-          </p>
-        </div>
-      </section>
-
       {/* Interactive Exhibits Grid */}
       <ExhibitShowcase />
 
