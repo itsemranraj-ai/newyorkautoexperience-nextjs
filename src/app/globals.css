@@ -5,11 +5,11 @@
    ========================================================================== */
 
 :root {
-  /* Solid Color Palette - No Gradients */
-  --color-bg-main: #0B0E14;        /* Solid Deep Obsidian Black */
-  --color-bg-card: #121824;        /* Solid Slate Charcoal Surface */
-  --color-bg-card-hover: #192233;  /* Solid Slightly Lighter Slate */
-  --color-bg-subtle: #080A0F;      /* Solid Pure Black Tone */
+  /* Color Palette & Translucency for Backdrop Integration */
+  --color-bg-main: transparent;
+  --color-bg-card: rgba(18, 24, 36, 0.88);        /* Translucent Slate Charcoal Surface */
+  --color-bg-card-hover: rgba(25, 34, 51, 0.95);  /* Slightly Lighter Slate */
+  --color-bg-subtle: rgba(11, 14, 20, 0.60);      /* Translucent Pure Dark Tone */
   --color-bg-light: #F8FAFC;       /* Solid Neutral Light (for light sections) */
   --color-bg-light-card: #FFFFFF;  /* Solid Pure White Card */
   
@@ -26,8 +26,8 @@
   --color-text-dark: #0F172A;      /* Solid Slate 900 */
   --color-text-dark-muted: #475569;/* Solid Slate 600 */
 
-  --color-border: #1E293B;         /* Solid 1px Slate Border */
-  --color-border-bright: #334155;  /* Solid Slate 700 Border */
+  --color-border: rgba(255, 255, 255, 0.12);      /* Translucent 1px Slate Border */
+  --color-border-bright: rgba(255, 255, 255, 0.22);/* Slate 700 Border */
   --color-border-light: #E2E8F0;   /* Solid Light Gray Border */
 
   /* Typography */
@@ -55,7 +55,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  background-color: var(--color-bg-main);
+  background-color: #080A0F;
   color: var(--color-text-white);
   font-family: var(--font-family-sans);
   line-height: 1.5;
@@ -67,6 +67,26 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #080A0F;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 50% 15%, rgba(15, 23, 42, 0.45) 0%, rgba(8, 10, 15, 0.85) 100%),
+    linear-gradient(180deg, rgba(8, 10, 15, 0.76) 0%, rgba(8, 10, 15, 0.85) 100%),
+    url('/backdrop.webp');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 
 img {
@@ -91,6 +111,21 @@ button, input, select, textarea {
   margin-right: auto;
   padding-left: 24px;
   padding-right: 24px;
+}
+
+/* Glassmorphism Frosted Blur for Cards on Backdrop */
+.metric-card,
+.exhibit-card,
+.stem-action-card,
+.charter-card,
+.step-card,
+.faq-item,
+.allocation-card,
+.zeffy-embed-container,
+.filter-btn,
+.brand-badge {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* ==========================================================================
@@ -186,7 +221,9 @@ button, input, select, textarea {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(--color-bg-main);
+  background-color: rgba(8, 10, 15, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-border);
   height: var(--header-height);
   display: flex;
@@ -207,7 +244,7 @@ button, input, select, textarea {
 }
 
 .brand-logo-wrap img {
-  height: 48px;
+  height: 44px;
   width: auto;
   object-fit: contain;
 }

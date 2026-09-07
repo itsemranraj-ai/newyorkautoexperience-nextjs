@@ -41,9 +41,9 @@ export default function Header() {
               <Image 
                 src="/logo.png" 
                 alt="The New York Auto Experience Inc. Logo" 
-                width={140} 
-                height={52} 
-                style={{ height: '52px', width: 'auto', objectFit: 'contain' }}
+                width={160} 
+                height={54} 
+                style={{ height: '44px', width: 'auto', objectFit: 'contain' }}
                 priority
               />
             </Link>

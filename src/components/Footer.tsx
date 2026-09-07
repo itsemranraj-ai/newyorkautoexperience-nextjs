@@ -20,8 +20,8 @@ export default function Footer() {
               <Image 
                 src="/logo.png" 
                 alt="The New York Auto Experience Inc." 
-                width={140} 
-                height={52} 
+                width={180} 
+                height={60} 
                 style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
               />
             </Link>
