@@ -81,8 +81,7 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image: 
-    radial-gradient(circle at 50% 15%, rgba(15, 23, 42, 0.45) 0%, rgba(8, 10, 15, 0.85) 100%),
-    linear-gradient(180deg, rgba(8, 10, 15, 0.76) 0%, rgba(8, 10, 15, 0.85) 100%),
+    linear-gradient(180deg, rgba(11, 14, 20, 0.55) 0%, rgba(11, 14, 20, 0.72) 100%),
     url('/backdrop.webp');
   background-size: cover;
   background-position: center top;
