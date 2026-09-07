@@ -34,6 +34,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <div className="site-backdrop" aria-hidden="true" />
         <Header />
         <main>{children}</main>
         <Footer />
