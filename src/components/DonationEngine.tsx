@@ -18,11 +18,10 @@ export default function DonationEngine() {
 
         {/* Embedded Official Zeffy Form (Direct Zero-Fee Giving) */}
         <div style={{
-          maxWidth: '850px',
+          maxWidth: '580px',
           margin: '0 auto',
           position: 'relative',
           width: '100%',
-          minHeight: '650px',
           borderRadius: '18px',
           overflow: 'hidden',
           boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
@@ -34,11 +33,11 @@ export default function DonationEngine() {
             src={zeffyUrl} 
             style={{
               width: '100%',
-              minHeight: '650px',
-              height: '800px',
+              height: '590px',
               border: 'none',
               borderRadius: '18px',
-              background: 'transparent'
+              background: 'transparent',
+              display: 'block'
             }} 
             allow="payment"
           />
