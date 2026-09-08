@@ -52,6 +52,7 @@ export default function Footer() {
             <h5>Organization</h5>
             <ul className="footer-links-list">
               <li><Link href="/mission">Our Mission</Link></li>
+              <li><Link href="/careers">Careers</Link></li>
               <li><Link href="/#stem-portal">For Educators</Link></li>
               <li><Link href="/donate">Donate &amp; Support</Link></li>
               <li><a href="https://newyorkautomuseum.com/" target="_blank" rel="noopener noreferrer">New York Auto Museum</a></li>
@@ -82,10 +83,11 @@ export default function Footer() {
           <div className="footer-legal-badge">
             <span>&copy; 2026 The New York Auto Experience Inc. All rights reserved.</span>
             <span>&bull;</span>
-            <span>501(c)(3) Nonprofit EIN: <strong>922822778</strong></span>
+            <span>501(c)(3) Nonprofit EIN: <strong style={{ color: '#FFF' }}>922822778</strong></span>
           </div>
           <div style={{ display: 'flex', gap: '20px' }}>
             <Link href="/mission" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Our Mission</Link>
+            <Link href="/careers" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Careers</Link>
             <Link href="/exhibits" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Exhibits</Link>
             <Link href="/donate" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Donate</Link>
           </div>
