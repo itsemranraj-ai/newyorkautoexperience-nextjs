@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 
 export default function StemPortal() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     schoolName: '',
     contactName: '',
@@ -13,9 +15,32 @@ export default function StemPortal() {
     titleOne: 'yes',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/submit-field-trip', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(data.message || 'Submission could not be completed. Please try again.');
+      }
+    } catch (err) {
+      setErrorMessage('Network connection error. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -91,6 +116,21 @@ export default function StemPortal() {
                 <p style={{ color: 'var(--color-text-dim)', fontSize: '0.88rem', marginBottom: '24px' }}>
                   Join our priority educator waitlist for advance bookings and sponsored Title 1 admissions upon opening.
                 </p>
+
+                {errorMessage && (
+                  <div style={{
+                    background: 'rgba(239, 68, 68, 0.15)',
+                    border: '1px solid rgba(239, 68, 68, 0.4)',
+                    color: '#F87171',
+                    padding: '12px 16px',
+                    borderRadius: '8px',
+                    marginBottom: '18px',
+                    fontSize: '0.9rem',
+                    lineHeight: 1.5,
+                  }}>
+                    ⚠️ {errorMessage}
+                  </div>
+                )}
 
                 <div className="form-group">
                   <label className="form-label">School / Institution Name</label>
@@ -168,8 +208,13 @@ export default function StemPortal() {
                   </select>
                 </div>
 
-                <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '10px' }}>
-                  Submit Field Trip Booking Request &rarr;
+                <button 
+                  type="submit" 
+                  className="btn btn-primary" 
+                  style={{ width: '100%', marginTop: '10px', opacity: loading ? 0.7 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
+                  disabled={loading}
+                >
+                  {loading ? 'Submitting Registration...' : 'Submit Field Trip Booking Request →'}
                 </button>
               </form>
             )}

@@ -1,13 +1,39 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Footer() {
-  const handleNewsletter = (e: React.FormEvent) => {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [subscribing, setSubscribing] = useState(false);
+  const [newsletterStatus, setNewsletterStatus] = useState<{ success?: boolean; message?: string } | null>(null);
+
+  const handleNewsletter = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for subscribing to The New York Auto Experience updates!');
+    if (!newsletterEmail) return;
+
+    setSubscribing(true);
+    setNewsletterStatus(null);
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setNewsletterStatus({ success: true, message: 'Subscribed successfully!' });
+        setNewsletterEmail('');
+      } else {
+        setNewsletterStatus({ success: false, message: data.message || 'Subscription failed.' });
+      }
+    } catch (err) {
+      setNewsletterStatus({ success: false, message: 'Network error. Please try again.' });
+    } finally {
+      setSubscribing(false);
+    }
   };
 
   return (
@@ -71,10 +97,31 @@ export default function Footer() {
                 type="email" 
                 placeholder="Enter your email" 
                 className="footer-newsletter-input" 
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
                 required 
+                disabled={subscribing}
               />
-              <button type="submit" className="btn btn-primary btn-sm">Join</button>
+              <button 
+                type="submit" 
+                className="btn btn-primary btn-sm"
+                disabled={subscribing}
+                style={{ opacity: subscribing ? 0.7 : 1 }}
+              >
+                {subscribing ? '...' : 'Join'}
+              </button>
             </form>
+            {newsletterStatus && (
+              <p style={{
+                marginTop: '10px',
+                fontSize: '0.82rem',
+                color: newsletterStatus.success ? '#34D399' : '#F87171',
+                lineHeight: 1.4
+              }}>
+                {newsletterStatus.success ? '✓ ' : '⚠️ '}
+                {newsletterStatus.message}
+              </p>
+            )}
           </div>
         </div>
 
