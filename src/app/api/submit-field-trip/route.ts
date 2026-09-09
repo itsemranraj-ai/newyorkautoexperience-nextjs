@@ -45,12 +45,24 @@ export async function POST(request: Request) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'NYAutoExperience-NextJS-Client/1.0',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
       },
       body: postBody.toString(),
     });
 
-    const result = await wpResponse.json();
+    const rawText = await wpResponse.text();
+    let result: any = null;
+    try {
+      result = JSON.parse(rawText);
+    } catch (e) {
+      console.error('WP Response was not JSON:', rawText);
+      return NextResponse.json({
+        success: false,
+        message: 'Unexpected server response format.',
+        debug_status: wpResponse.status,
+        debug_raw: rawText.substring(0, 300),
+      }, { status: 502 });
+    }
 
     if (result.success) {
       return NextResponse.json({
@@ -62,6 +74,7 @@ export async function POST(request: Request) {
         {
           success: false,
           message: 'Submission could not be validated. Please check the information and try again.',
+          debug_result: result,
         },
         { status: 400 }
       );
@@ -69,7 +82,13 @@ export async function POST(request: Request) {
   } catch (error: any) {
     console.error('Error submitting form to WordPress Fluent Forms:', error);
     return NextResponse.json(
-      { success: false, message: 'Server connection error. Please try again later.' },
+      { 
+        success: false, 
+        message: 'Server connection error.',
+        error_name: error?.name,
+        error_message: error?.message,
+        error_cause: error?.cause ? String(error.cause) : undefined,
+      },
       { status: 500 }
     );
   }
