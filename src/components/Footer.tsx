@@ -17,19 +17,43 @@ export default function Footer() {
     setNewsletterStatus(null);
 
     try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: newsletterEmail }),
+      const formPayload = new URLSearchParams({
+        email: newsletterEmail.trim(),
       });
+
+      const postBody = new URLSearchParams({
+        action: 'fluentform_submit',
+        form_id: '2',
+        data: formPayload.toString(),
+      });
+
+      const res = await fetch('https://admin.newyorkautoexperience.org/wp-admin/admin-ajax.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: postBody.toString(),
+      });
+
       const data = await res.json();
-      if (res.ok && data.success) {
+      if (data.success) {
         setNewsletterStatus({ success: true, message: 'Subscribed successfully!' });
         setNewsletterEmail('');
       } else {
-        setNewsletterStatus({ success: false, message: data.message || 'Subscription failed.' });
+        setNewsletterStatus({ success: false, message: 'Subscription could not be completed.' });
       }
     } catch (err) {
+      try {
+        const fb = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: newsletterEmail }),
+        });
+        const fbData = await fb.json();
+        if (fb.ok && fbData.success) {
+          setNewsletterStatus({ success: true, message: 'Subscribed successfully!' });
+          setNewsletterEmail('');
+          return;
+        }
+      } catch (_) {}
       setNewsletterStatus({ success: false, message: 'Network error. Please try again.' });
     } finally {
       setSubscribing(false);
