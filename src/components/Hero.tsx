@@ -50,7 +50,7 @@ export default function Hero() {
                   className="hero-visual-badge"
                   title="Explore Interactive STEM Exhibits"
                 >
-                  Interactive STEM Exhibit &rarr;
+                  Interactive STEM Exhibit
                 </Link>
               </div>
             </div>
