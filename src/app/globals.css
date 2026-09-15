@@ -490,8 +490,21 @@ button, input, select, textarea {
   color: var(--color-text-white);
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 4px 8px;
+  padding: 6px 12px;
   border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+a.hero-visual-badge:hover,
+button.hero-visual-badge:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.45);
 }
 
 /* ==========================================================================

@@ -45,7 +45,13 @@ export default function Hero() {
               />
               <div className="hero-visual-overlay">
                 <span className="hero-visual-caption">Future of Mobility &amp; Aerodynamics Lab</span>
-                <span className="hero-visual-badge">Interactive STEM Exhibit</span>
+                <Link 
+                  href="/exhibits" 
+                  className="hero-visual-badge"
+                  title="Explore Interactive STEM Exhibits"
+                >
+                  Interactive STEM Exhibit &rarr;
+                </Link>
               </div>
             </div>
           </div>

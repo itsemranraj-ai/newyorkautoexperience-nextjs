@@ -229,6 +229,7 @@ const careerSections: Department[] = [
 ];
 
 export default function CareersPage() {
+  const [noticeOpen, setNoticeOpen] = useState(false);
   const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({});
   const [openRoles, setOpenRoles] = useState<Record<string, boolean>>({});
 
@@ -346,6 +347,90 @@ export default function CareersPage() {
         .sub-content a:hover {
           text-decoration: underline;
         }
+
+        .asterisk-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(74, 202, 168, 0.15);
+          color: #4acaa8;
+          border: 1px solid rgba(74, 202, 168, 0.5);
+          border-radius: 4px;
+          padding: 0 7px;
+          margin-left: 8px;
+          font-size: 1.25rem;
+          font-weight: 700;
+          line-height: 1.1;
+          cursor: pointer;
+          vertical-align: middle;
+          transition: all 0.2s ease;
+        }
+
+        .asterisk-btn:hover,
+        .asterisk-btn.open {
+          background: #4acaa8;
+          color: #0b0e14;
+          border-color: #4acaa8;
+          transform: scale(1.1);
+        }
+
+        .career-notice-box {
+          max-width: 720px;
+          margin: 22px auto 0;
+          background: rgba(74, 202, 168, 0.08);
+          border: 1px solid rgba(74, 202, 168, 0.35);
+          border-left: 4px solid #4acaa8;
+          border-radius: 6px;
+          padding: 18px 22px;
+          text-align: left;
+          position: relative;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+          animation: noticeFadeIn 0.22s ease-out;
+        }
+
+        @keyframes noticeFadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-6px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .career-notice-close {
+          position: absolute;
+          top: 8px;
+          right: 12px;
+          background: none;
+          border: none;
+          color: #a0aec0;
+          font-size: 1.3rem;
+          cursor: pointer;
+          line-height: 1;
+          padding: 2px 6px;
+          transition: color 0.15s;
+        }
+
+        .career-notice-close:hover {
+          color: #ffffff;
+        }
+
+        .career-notice-box p {
+          font-size: 0.92rem !important;
+          line-height: 1.7 !important;
+          color: #e2e8f0 !important;
+          margin: 0 0 10px 0 !important;
+        }
+
+        .career-notice-signature {
+          font-size: 0.88rem;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: #4acaa8;
+          text-align: right;
+        }
       `}</style>
 
       <div className="inner">
@@ -354,7 +439,34 @@ export default function CareersPage() {
           <p>
             Join the team building one of the world&apos;s leading museum attractions.<br />
             Apply: <a href="mailto:hr@newyorkautomuseum.com">hr@newyorkautomuseum.com</a>
+            <button
+              type="button"
+              className={`asterisk-btn ${noticeOpen ? 'open' : ''}`}
+              onClick={() => setNoticeOpen(prev => !prev)}
+              title="Click to view leadership disclosure"
+              aria-label="Toggle leadership position disclosure"
+              aria-expanded={noticeOpen}
+            >
+              *
+            </button>
           </p>
+
+          {noticeOpen && (
+            <div className="career-notice-box">
+              <button 
+                type="button" 
+                className="career-notice-close" 
+                onClick={() => setNoticeOpen(false)}
+                aria-label="Close notice"
+              >
+                &times;
+              </button>
+              <p>
+                At this time, we&apos;re looking for senior employed executives who can sponsor their membership and provide one hour a week of dedicated service. The one hour a week will be compounded with support from the overall team on a monthly basis. <strong>This is not a salary position.</strong> All interim leadership become members with the completion of their participation agreement.
+              </p>
+              <div className="career-notice-signature">NYAM</div>
+            </div>
+          )}
         </header>
 
         {careerSections.map(dept => {
