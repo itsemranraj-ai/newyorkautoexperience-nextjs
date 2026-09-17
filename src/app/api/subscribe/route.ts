@@ -27,12 +27,22 @@ export async function POST(request: Request) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'NYAutoExperience-NextJS-Client/1.0',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'Cookie': 'hc_js_gate=1',
       },
       body: postBody.toString(),
     });
 
-    const result = await wpResponse.json();
+    const rawText = await wpResponse.text();
+    let result: any = null;
+    try {
+      result = JSON.parse(rawText);
+    } catch (_) {
+      return NextResponse.json(
+        { success: false, message: 'Unexpected server response format.' },
+        { status: 502 }
+      );
+    }
 
     if (result.success) {
       return NextResponse.json({
