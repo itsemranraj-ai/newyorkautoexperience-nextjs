@@ -29,15 +29,15 @@ export default function SignUpPage() {
           <div className="signup-trust-bar">
             <div className="signup-trust-item">
               <span>🏛️</span>
-              <span><strong>501(c)(3) Nonprofit:</strong> EIN 922822778</span>
+              <span><strong>501(c)(3) Nonprofit:</strong> <span className="trust-highlight">EIN 922822778</span></span>
             </div>
             <div className="signup-trust-item">
               <span>📜</span>
-              <span><strong>100% Tax Deductible</strong> Receipts Provided</span>
+              <span><strong>100% Tax Deductible</strong> <span className="trust-dim">Receipts Provided</span></span>
             </div>
             <div className="signup-trust-item">
               <span>📍</span>
-              <span><strong>Manhattan, NYC</strong> Headquarters</span>
+              <span><strong>Manhattan, NYC</strong> <span className="trust-dim">Headquarters</span></span>
             </div>
           </div>
         </div>
