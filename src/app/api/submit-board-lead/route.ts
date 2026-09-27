@@ -30,12 +30,16 @@ export async function POST(request: Request) {
       );
     }
 
-    // Prepare payload for WordPress Fluent Forms
+    // Prepare payload for WordPress Fluent Forms (Form ID: 5)
     const formPayload = new URLSearchParams({
+      full_name: String(name).trim(),
       names: String(name).trim(),
+      input_text: String(name).trim(),
       email: String(email).trim(),
       phone: String(phone).trim(),
-      board_tier: String(boardTier || '$500 - Advisory Board Committee').trim(),
+      dropdown: String(boardTier || '$500 - Advisory Committee Board').trim(),
+      board_tier: String(boardTier || '$500 - Advisory Committee Board').trim(),
+      description: String(background || 'None provided').trim(),
       background_notes: String(background || 'None provided').trim(),
       criteria_1: 'Agreed (Build New York Auto Museum Experience Center)',
       criteria_2: 'Agreed (Tax-deductible $500 - $5,000 donation request)',
@@ -46,7 +50,7 @@ export async function POST(request: Request) {
 
     const postBody = new URLSearchParams({
       action: 'fluentform_submit',
-      form_id: '3', // Posts to main Fluent Forms engine
+      form_id: '5', // Dedicated Committee Board Applications Form
       data: formPayload.toString(),
     });
 
