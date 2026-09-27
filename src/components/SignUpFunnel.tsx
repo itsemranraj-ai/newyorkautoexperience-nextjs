@@ -114,7 +114,7 @@ export default function SignUpFunnel() {
           </p>
 
           <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '24px', maxWidth: '580px', margin: '0 auto 32px', textAlign: 'left' }}>
-            <h4 style={{ color: '#FB7185', fontSize: '0.92rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+            <h4 style={{ color: 'var(--color-primary, #E11D48)', fontSize: '0.92rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
               What Happens Next:
             </h4>
             <ul style={{ color: '#CBD5E1', fontSize: '0.9rem', lineHeight: 1.7, paddingLeft: '20px', margin: 0 }}>
