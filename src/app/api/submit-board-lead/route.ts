@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     // Verify all 4 criteria are accepted
     if (!commitments?.q1 || !commitments?.q2 || !commitments?.q3 || !commitments?.q4) {
       return NextResponse.json(
-        { success: false, message: 'All 4 Committee Board qualification criteria must be confirmed.' },
+        { success: false, message: 'All Committee Board qualification criteria must be confirmed.' },
         { status: 400 }
       );
     }

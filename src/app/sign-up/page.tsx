@@ -22,7 +22,7 @@ export default function SignUpPage() {
           </h1>
           <p className="signup-main-subtitle">
             We are assembling forward-thinking automotive enthusiasts, STEM educators, philanthropists, and civic leaders 
-            to join our Committee Board in New York City. Please pre-qualify through the 4 institutional criteria below to apply.
+            to join our Committee Board in New York City. Please pre-qualify through the institutional criteria below to apply.
           </p>
 
           {/* Trust Highlights */}

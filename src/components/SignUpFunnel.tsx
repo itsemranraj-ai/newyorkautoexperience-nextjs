@@ -54,7 +54,7 @@ export default function SignUpFunnel() {
     setErrorMessage(null);
 
     if (!allAgreed) {
-      setErrorMessage('Please confirm all 4 Committee Board qualification criteria first.');
+      setErrorMessage('Please confirm all Committee Board qualification criteria first.');
       return;
     }
 
@@ -159,7 +159,7 @@ export default function SignUpFunnel() {
           </div>
 
           <p style={{ color: 'var(--color-text-muted)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '24px' }}>
-            To ensure meaningful leadership for the New York Auto Museum Experience Center Inc., candidates are prompted to pre-qualify through the 4 institutional guidelines below:
+            To ensure meaningful leadership for the New York Auto Museum Experience Center Inc., candidates are prompted to pre-qualify through the institutional guidelines below:
           </p>
 
           {/* Prompt 1 */}
