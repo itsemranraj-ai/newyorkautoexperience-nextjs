@@ -20,7 +20,7 @@ export default function SignUpFunnel() {
     name: '',
     email: '',
     phone: '',
-    boardTier: '$500 - Advisory Committee Board',
+    boardTier: '$1,500 - Advisory Committee Board',
     background: '',
   });
 
@@ -90,7 +90,7 @@ export default function SignUpFunnel() {
           if (typeof w.gtag === 'function') {
             w.gtag('event', 'conversion', {
               send_to: 'AW-CONVERSION-PLACEHOLDER',
-              value: formData.boardTier.includes('5,000') ? 5000 : 500,
+              value: formData.boardTier.includes('5,000') ? 5000 : formData.boardTier.includes('2,500') ? 2500 : 1500,
               currency: 'USD',
             });
           }
@@ -210,7 +210,7 @@ export default function SignUpFunnel() {
               <div className="prompt-text-group">
                 <div className="prompt-number-badge">{prompts.q2 === true ? '✓' : '2'}</div>
                 <p className="prompt-question">
-                  I understand that there is a tax-deductible 501(c)(3) donation request between $500 – $5,000 depending on the board level I participate in?
+                  I understand that there is a tax-deductible 501(c)(3) donation request between $1,500 – $5,000 depending on the board level I participate in?
                 </p>
               </div>
               <div className="prompt-button-group">
@@ -240,7 +240,7 @@ export default function SignUpFunnel() {
                 <strong style={{ color: '#EF4444', fontSize: '1rem' }}>Application Stopped: Donation Commitment Required</strong>
               </div>
               <p style={{ margin: 0, lineHeight: 1.6 }}>
-                Committee Board leadership requires agreement to the $500 – $5,000 tax-deductible 501(c)(3) contribution request. Since you selected &quot;No&quot;, you cannot proceed further with this application.
+                Committee Board leadership requires agreement to the $1,500 – $5,000 tax-deductible 501(c)(3) contribution request. Since you selected &quot;No&quot;, you cannot proceed further with this application.
               </p>
               <p style={{ marginTop: '12px', marginBottom: 0, fontSize: '0.88rem' }}>
                 If you prefer general contributions of any amount without board governance obligations, please visit our <Link href="/donate">General Donations Page</Link>.
@@ -407,14 +407,13 @@ export default function SignUpFunnel() {
                 </div>
 
                 <div>
-                  <label className="lead-input-label">Preferred Board Tier ($500 - $5,000)</label>
+                  <label className="lead-input-label">Preferred Board Tier ($1,500 - $5,000)</label>
                   <select
                     className="lead-input-field"
                     value={formData.boardTier}
                     onChange={(e) => setFormData({ ...formData, boardTier: e.target.value })}
                   >
-                    <option value="$500 - Advisory Committee Board">$500 - Advisory Committee Board</option>
-                    <option value="$1,000 - Steering & Education Committee">$1,000 - Steering &amp; Education Committee</option>
+                    <option value="$1,500 - Advisory Committee Board">$1,500 - Advisory Committee Board</option>
                     <option value="$2,500 - Leadership & Exhibits Council">$2,500 - Leadership &amp; Exhibits Council</option>
                     <option value="$5,000 - Executive Founding Board">$5,000 - Executive Founding Board</option>
                   </select>
