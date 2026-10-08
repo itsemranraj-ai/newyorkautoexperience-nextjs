@@ -9,22 +9,22 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Join Committee Board | The New York Auto Experience Inc.',
     description: 'Join the Committee Board to help build the New York Auto Museum Experience Center Inc. in New York City. Pre-qualify online for 501(c)(3) board leadership.',
-    url: 'https://newyorkautoexperience.org/sign-up',
+    url: 'https://www.newyorkautoexperience.org/sign-up',
     siteName: 'The New York Auto Experience',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://newyorkautoexperience.org/og-image.jpg',
-        secureUrl: 'https://newyorkautoexperience.org/og-image.jpg',
+        url: 'https://www.newyorkautoexperience.org/og-image.jpg',
+        secureUrl: 'https://www.newyorkautoexperience.org/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'The New York Auto Experience Committee Board',
         type: 'image/jpeg',
       },
       {
-        url: 'https://newyorkautoexperience.org/og-image.png',
-        secureUrl: 'https://newyorkautoexperience.org/og-image.png',
+        url: 'https://www.newyorkautoexperience.org/og-image.png',
+        secureUrl: 'https://www.newyorkautoexperience.org/og-image.png',
         width: 1200,
         height: 630,
         alt: 'The New York Auto Experience Committee Board',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Join Committee Board | The New York Auto Experience Inc.',
     description: 'Join the Committee Board to help build the New York Auto Museum Experience Center Inc. in New York City. Pre-qualify online for 501(c)(3) board leadership.',
-    images: ['https://newyorkautoexperience.org/og-image.jpg'],
+    images: ['https://www.newyorkautoexperience.org/og-image.jpg'],
   },
 };
 

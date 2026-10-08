@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://newyorkautoexperience.org'),
+  metadataBase: new URL('https://www.newyorkautoexperience.org'),
   title: 'The New York Auto Experience | 501(c)(3) Automotive STEM Nonprofit',
   description: 'Empowering 2 million students through automotive STEM education, hands-on exhibits, robotics labs, and sponsored admissions for Title 1 public schools.',
   keywords: ['New York Auto Experience', 'Automotive STEM', '501(c)(3) Nonprofit', 'NYC Museum', 'Title 1 Field Trips', 'Robotics and EV Education'],
@@ -15,22 +15,22 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The New York Auto Experience | 501(c)(3) Automotive STEM Nonprofit',
     description: 'Empowering 2 million students through hands-on automotive science, technology, and engineering exhibits in New York.',
-    url: 'https://newyorkautoexperience.org',
+    url: 'https://www.newyorkautoexperience.org',
     siteName: 'The New York Auto Experience',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://newyorkautoexperience.org/og-image.jpg',
-        secureUrl: 'https://newyorkautoexperience.org/og-image.jpg',
+        url: 'https://www.newyorkautoexperience.org/og-image.jpg',
+        secureUrl: 'https://www.newyorkautoexperience.org/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'The New York Auto Experience',
         type: 'image/jpeg',
       },
       {
-        url: 'https://newyorkautoexperience.org/og-image.png',
-        secureUrl: 'https://newyorkautoexperience.org/og-image.png',
+        url: 'https://www.newyorkautoexperience.org/og-image.png',
+        secureUrl: 'https://www.newyorkautoexperience.org/og-image.png',
         width: 1200,
         height: 630,
         alt: 'The New York Auto Experience',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The New York Auto Experience | 501(c)(3) Automotive STEM Nonprofit',
     description: 'Empowering 2 million students through hands-on automotive science, technology, and engineering exhibits in New York.',
-    images: ['https://newyorkautoexperience.org/og-image.jpg'],
+    images: ['https://www.newyorkautoexperience.org/og-image.jpg'],
   },
 };
 
