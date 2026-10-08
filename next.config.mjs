@@ -15,6 +15,16 @@ const nextConfig = {
         destination: '/sign-up',
         permanent: true,
       },
+      {
+        source: '/social',
+        destination: 'https://www.newyorkautomuseum.com/social',
+        permanent: true,
+      },
+      {
+        source: '/socials',
+        destination: 'https://www.newyorkautomuseum.com/social',
+        permanent: true,
+      },
     ];
   },
 };
