@@ -21,16 +21,16 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://www.newyorkautoexperience.org/nyae-preview.jpg',
-        secureUrl: 'https://www.newyorkautoexperience.org/nyae-preview.jpg',
+        url: 'https://www.newyorkautoexperience.org/nyae-header-preview.jpg',
+        secureUrl: 'https://www.newyorkautoexperience.org/nyae-header-preview.jpg',
         width: 1200,
         height: 630,
         alt: 'The New York Auto Experience',
         type: 'image/jpeg',
       },
       {
-        url: 'https://www.newyorkautoexperience.org/nyae-preview.png',
-        secureUrl: 'https://www.newyorkautoexperience.org/nyae-preview.png',
+        url: 'https://www.newyorkautoexperience.org/nyae-header-preview.png',
+        secureUrl: 'https://www.newyorkautoexperience.org/nyae-header-preview.png',
         width: 1200,
         height: 630,
         alt: 'The New York Auto Experience',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The New York Auto Experience | 501(c)(3) Automotive STEM Nonprofit',
     description: 'Empowering 2 million students through hands-on automotive science, technology, and engineering exhibits in New York.',
-    images: ['https://www.newyorkautoexperience.org/nyae-preview.jpg'],
+    images: ['https://www.newyorkautoexperience.org/nyae-header-preview.jpg'],
   },
 };
 
