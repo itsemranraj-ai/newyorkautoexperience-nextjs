@@ -13,7 +13,7 @@ export default function Hero() {
               <strong>COMING SOON TO NEW YORK</strong> &bull; Physical Location In Active Development
             </div>
             <h1 className="hero-title">
-              Empowering <span className="highlight">2 Million Students</span><br />
+              Empowering <span className="highlight">Millions of Students</span><br />
               Through Automotive STEM.
             </h1>
             <p className="hero-description">
