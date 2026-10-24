@@ -34,7 +34,7 @@ export default function DualCharterSection() {
               The dedicated educational public charity chartered to turn automotive technology into accredited STEM curricula. Dedicated to ensuring financial barriers never prevent curious students from hands-on science learning.
             </p>
             <p style={{ color: 'var(--color-primary)', fontSize: '0.88rem', fontWeight: 600 }}>
-              Targeting 500,000+ annual sponsored admissions for Title 1 public school students upon grand opening.
+              Targeting 500,000+ a year sponsored admissions for Title 1 public school students upon grand opening.
             </p>
           </div>
         </div>

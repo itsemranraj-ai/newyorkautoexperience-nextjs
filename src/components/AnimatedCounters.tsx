@@ -13,7 +13,7 @@ interface MetricItem {
 
 const metrics: MetricItem[] = [
   { target: 2000000, label: 'Students Targeted', subtext: 'Comprehensive STEM outreach planned across America', suffix: '+', accentClass: 'accent-red' },
-  { target: 500000, label: 'Projected Free Admissions', subtext: 'Annual sponsored access targeted for Title 1 schools', suffix: '+' },
+  { target: 500000, label: 'Free Admissions a Year', subtext: 'Annual sponsored access targeted for Title 1 schools', suffix: '+ a year' },
   { target: 15000000, label: 'Projected Annual Impact', subtext: 'Underwritten educational value upon full operations', prefix: '$', accentClass: 'accent-blue' },
   { target: 12, label: 'Interactive Stations Planned', subtext: 'From autonomous AI navigation to EV powertrains', suffix: '+', accentClass: 'accent-amber' }
 ];
@@ -62,7 +62,12 @@ export default function AnimatedCounters() {
           {metrics.map((m, i) => (
             <div className="metric-card" key={m.label}>
               <div className={`metric-number ${m.accentClass || ''}`}>
-                {m.prefix || ''}{counts[i].toLocaleString('en-US')}{m.suffix || ''}
+                {m.prefix || ''}{counts[i].toLocaleString('en-US')}{m.suffix?.replace(' a year', '')}
+                {m.suffix?.includes('a year') && (
+                  <span style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-text-dim)', marginLeft: '6px', whiteSpace: 'nowrap' }}>
+                    a year
+                  </span>
+                )}
               </div>
               <div className="metric-label">{m.label}</div>
               <div className="metric-subtext">{m.subtext}</div>

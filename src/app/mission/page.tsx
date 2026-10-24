@@ -156,7 +156,7 @@ export default function MissionPage() {
               <div style={{ marginTop: '25px', paddingTop: '20px', borderTop: '1px solid var(--color-border)' }}>
                 <strong style={{ color: '#FFFFFF', fontSize: '0.9rem' }}>Primary Role:</strong>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '4px' }}>
-                  Targeting 500,000+ annual sponsored admissions and accredited STEM field trip experiences upon grand opening.
+                  Targeting 500,000+ a year sponsored admissions and accredited STEM field trip experiences upon grand opening.
                 </p>
               </div>
             </div>

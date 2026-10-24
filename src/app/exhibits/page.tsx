@@ -19,7 +19,7 @@ export default function ExhibitsPage() {
         <div className="container text-center">
           <h2 style={{ fontSize: '2rem', marginBottom: '14px', color: '#FFF' }}>Bring Your Students to Experience These Exhibits in Person</h2>
           <p style={{ color: 'var(--color-text-muted)', maxWidth: '650px', margin: '0 auto 24px', lineHeight: 1.6 }}>
-            100% of admission fees are waived for public schools, Title 1 classrooms, and youth organizations through our annual 500,000+ ticket sponsorship program.
+            100% of admission fees are waived for public schools, Title 1 classrooms, and youth organizations through our 500,000+ a year ticket sponsorship program.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
             <Link href="/#stem-portal" className="btn btn-primary">

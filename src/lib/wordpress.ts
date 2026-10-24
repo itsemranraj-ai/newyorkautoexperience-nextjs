@@ -173,7 +173,7 @@ export const defaultSiteContent: SiteContent = {
   exhibits_page_title: 'Exhibits & STEM Demonstrations',
   exhibits_page_subtitle: 'From the inner mechanics of combustion and electric powertrains to advanced artificial intelligence and aerodynamics, discover 12 permanent learning stations.',
   exhibits_cta_title: 'Bring Your Students to Experience These Exhibits in Person',
-  exhibits_cta_subtitle: '100% of admission fees are waived for public schools, Title 1 classrooms, and youth organizations through our annual 500,000+ ticket sponsorship program.',
+  exhibits_cta_subtitle: '100% of admission fees are waived for public schools, Title 1 classrooms, and youth organizations through our 500,000+ a year ticket sponsorship program.',
 
   donate_page_title: 'Fuel the Next Generation of Innovators',
   donate_page_subtitle: 'When you give, you remove financial barriers for students from under-resourced schools to experience hands-on STEM learning in New York City.',
