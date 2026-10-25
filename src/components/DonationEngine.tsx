@@ -16,6 +16,30 @@ export default function DonationEngine() {
           </p>
         </div>
 
+        {/* Donor Tip Guidance Note */}
+        <div
+          style={{
+            maxWidth: '580px',
+            margin: '0 auto 20px auto',
+            padding: '14px 18px',
+            borderRadius: '12px',
+            backgroundColor: 'rgba(255, 255, 255, 0.04)',
+            border: '1px solid rgba(255, 255, 255, 0.12)',
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '12px',
+            boxSizing: 'border-box',
+          }}
+        >
+          <span style={{ fontSize: '1.25rem', lineHeight: 1, flexShrink: 0, marginTop: '2px' }}>💡</span>
+          <div style={{ fontSize: '0.85rem', lineHeight: 1.55, color: 'var(--color-text-muted)' }}>
+            <strong style={{ color: '#FFFFFF', display: 'block', marginBottom: '2px' }}>
+              Donor Note Regarding Platform Tip:
+            </strong>
+            Zeffy is a 100% free platform for our charity that charges $0 processing fees. The platform tip prompt at checkout is completely optional—you can easily set it to <span style={{ color: '#FFFFFF', fontWeight: 600 }}>$0.00</span> by selecting <span style={{ color: '#FFFFFF', fontWeight: 600 }}>&ldquo;Other&rdquo;</span> from the contribution dropdown.
+          </div>
+        </div>
+
         {/* Embedded Official Zeffy Form (Direct Zero-Fee Giving) */}
         <div style={{
           maxWidth: '580px',
