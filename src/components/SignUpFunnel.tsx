@@ -176,7 +176,7 @@ export default function SignUpFunnel() {
                 className={`prompt-choice-btn ${prompts.q1 === true ? 'active-yes' : ''}`}
                 onClick={() => handlePrompt('q1', true)}
               >
-                <span>✓</span> Yes, I Agree
+                Yes
               </button>
               <button
                 type="button"
@@ -219,7 +219,7 @@ export default function SignUpFunnel() {
                   className={`prompt-choice-btn ${prompts.q2 === true ? 'active-yes' : ''}`}
                   onClick={() => handlePrompt('q2', true)}
                 >
-                  <span>✓</span> Yes, I Understand &amp; Agree
+                  Yes
                 </button>
                 <button
                   type="button"
@@ -263,7 +263,7 @@ export default function SignUpFunnel() {
                   className={`prompt-choice-btn ${prompts.q3 === true ? 'active-yes' : ''}`}
                   onClick={() => handlePrompt('q3', true)}
                 >
-                  <span>✓</span> Yes, I Agree
+                  Yes
                 </button>
                 <button
                   type="button"
@@ -304,7 +304,7 @@ export default function SignUpFunnel() {
                   className={`prompt-choice-btn ${prompts.q4 === true ? 'active-yes' : ''}`}
                   onClick={() => handlePrompt('q4', true)}
                 >
-                  <span>✓</span> Yes, I Agree
+                  Yes
                 </button>
                 <button
                   type="button"
