@@ -451,6 +451,39 @@ button, input, select, textarea {
   color: var(--color-text-dim);
 }
 
+/* Standalone Clean Hero (When Side Visual Window is Removed) */
+.hero-content-standalone {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-content-standalone .hero-title {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.15;
+}
+
+.hero-content-standalone .hero-tag {
+  justify-content: center;
+}
+
+.hero-content-standalone .hero-description {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+.hero-content-standalone .hero-cta-group {
+  justify-content: center;
+}
+
+.hero-content-standalone .hero-trust-row {
+  justify-content: center;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
 .hero-visual-card {
   position: relative;
   background-color: var(--color-bg-card);
@@ -1434,7 +1467,40 @@ button.hero-visual-badge:hover {
     align-items: flex-start;
     font-size: 0.8rem;
   }
-  .hero-visual-card {
+  /* Standalone Clean Hero (When Side Visual Window is Removed) */
+.hero-content-standalone {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-content-standalone .hero-title {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.15;
+}
+
+.hero-content-standalone .hero-tag {
+  justify-content: center;
+}
+
+.hero-content-standalone .hero-description {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+.hero-content-standalone .hero-cta-group {
+  justify-content: center;
+}
+
+.hero-content-standalone .hero-trust-row {
+  justify-content: center;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.hero-visual-card {
     width: 100%;
   }
   .hero-visual-card img {
