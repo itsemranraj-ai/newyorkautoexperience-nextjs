@@ -241,12 +241,15 @@ button, input, select, textarea {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  max-width: 1520px;
+  padding: 0 24px;
 }
 
 .brand-logo-wrap {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .brand-logo-wrap img {
@@ -266,27 +269,30 @@ button, input, select, textarea {
   border-radius: var(--radius-sm);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(12px, 1.4vw, 24px);
 }
 
 .nav-links {
   display: flex;
+  align-items: center;
   list-style: none;
-  gap: 28px;
+  gap: clamp(8px, 1.1vw, 20px);
 }
 
 .nav-links a {
   color: var(--color-text-muted);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 500;
   transition: color var(--transition-fast);
   padding: 6px 0;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -307,7 +313,20 @@ button, input, select, textarea {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.header-actions .btn-sm {
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 1240px) {
+  .site-header .brand-badge {
+    display: none;
+  }
 }
 
 /* Mobile Nav Toggle */
@@ -1315,16 +1334,16 @@ button.hero-visual-badge:hover {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
   .site-header {
     height: 70px;
   }
   .site-header .brand-badge {
-    display: none; /* Clean up header on mobile */
+    display: none; /* Clean up header on tablet & mobile */
   }
   .brand-link img {
     height: 42px;
-    max-width: 110px;
+    max-width: 120px;
   }
   .main-nav {
     display: none;
@@ -1399,6 +1418,9 @@ button.hero-visual-badge:hover {
     height: 42px;
     cursor: pointer;
   }
+}
+
+@media (max-width: 768px) {
   .hero-section {
     padding: 36px 0 45px;
   }
