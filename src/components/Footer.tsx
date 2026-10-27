@@ -102,7 +102,6 @@ export default function Footer() {
             <h5>Organization</h5>
             <ul className="footer-links-list">
               <li><Link href="/mission">Our Mission</Link></li>
-              <li><Link href="/governance">Governance &amp; Filings</Link></li>
               <li><Link href="/careers">Careers</Link></li>
               <li><Link href="/#stem-portal">For Educators</Link></li>
               <li><Link href="/donate">Donate &amp; Support</Link></li>
@@ -300,7 +299,6 @@ export default function Footer() {
           </div>
           <div style={{ display: 'flex', gap: '20px' }}>
             <Link href="/mission" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Our Mission</Link>
-            <Link href="/governance" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Governance</Link>
             <Link href="/careers" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Careers</Link>
             <Link href="/exhibits" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Exhibits</Link>
             <Link href="/donate" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Donate</Link>

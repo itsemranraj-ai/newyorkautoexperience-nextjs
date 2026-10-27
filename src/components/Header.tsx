@@ -14,7 +14,6 @@ export default function Header() {
     { name: 'Our Mission', href: '/mission' },
     { name: 'Exhibits', href: '/exhibits' },
     { name: 'STEM Education', href: '/#stem-portal' },
-    { name: 'Governance', href: '/governance' },
     { name: 'Careers', href: '/careers' },
     { name: 'Donate', href: '/donate' },
   ];
