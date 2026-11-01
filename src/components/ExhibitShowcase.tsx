@@ -147,6 +147,21 @@ export default function ExhibitShowcase() {
       document.body.style.overflow = '';
     };
   }, [selectedExhibit]);
+
+  // Support ESC key to close modal instantly
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeDialog();
+      }
+    };
+    if (selectedExhibit) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedExhibit]);
   const [ideaText, setIdeaText] = useState('');
   const [visitorName, setVisitorName] = useState('');
   const [visitorEmail, setVisitorEmail] = useState('');
@@ -283,10 +298,11 @@ export default function ExhibitShowcase() {
             >
               &times;
             </button>
-            <div className="modal-media">
-              <img src={selectedExhibit.image} alt={selectedExhibit.title} />
-            </div>
-            <div className="modal-body">
+            <div className="modal-scroll-body">
+              <div className="modal-media">
+                <img src={selectedExhibit.image} alt={selectedExhibit.title} />
+              </div>
+              <div className="modal-body">
               <span className="section-tag">{selectedExhibit.categoryLabel}</span>
               <h3 style={{ fontSize: '1.6rem', color: '#FFF', margin: '8px 0 12px' }}>{selectedExhibit.title}</h3>
               <div className="modal-stem-pills">
@@ -415,6 +431,7 @@ export default function ExhibitShowcase() {
                   Close
                 </button>
               </div>
+            </div>
             </div>
           </div>
         </div>,
