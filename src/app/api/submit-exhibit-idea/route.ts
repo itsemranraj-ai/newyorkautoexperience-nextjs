@@ -22,27 +22,27 @@ export async function POST(request: Request) {
       );
     }
 
-    // Format notes for David and Admin
-    const formattedMessage = [
-      `Pavilion: ${pavilionTitle} (ID: ${pavilionId || 'general'})`,
-      `Submitted By: ${name} (${email})`,
-      `Exhibit Ideas & Suggestions:\n${idea}`,
-      'Source: Interactive 12 Pavilions Modal (newyorkautoexperience.org)',
-    ].join('\n\n');
+    // Clean trimmed values
+    const cleanName = String(name).trim();
+    const cleanEmail = String(email).trim();
+    const cleanPavilion = String(pavilionTitle).trim();
+    const cleanIdea = String(idea).trim();
 
     // Prepare payload for WordPress Fluent Forms (Form ID: 7 - Pavilion Exhibit Ideas)
     const formPayload = new URLSearchParams({
-      names: String(name).trim(),
-      name: String(name).trim(),
-      full_name: String(name).trim(),
-      email: String(email).trim(),
-      subject: `Exhibit Idea Submission: ${pavilionTitle}`,
-      message: formattedMessage,
-      description: formattedMessage,
-      pavilion: String(pavilionTitle).trim(),
-      input_text: String(name).trim(),
-      input_text_1: String(pavilionTitle).trim(),
-      submission_type: 'Pavilion Exhibit Idea (Visitor Engagement)',
+      names: cleanName,
+      name: cleanName,
+      full_name: cleanName,
+      email: cleanEmail,
+      subject: `Exhibit Idea Submission: ${cleanPavilion}`,
+      message: cleanIdea,
+      description: cleanIdea,
+      idea: cleanIdea,
+      comments: cleanIdea,
+      pavilion: cleanPavilion,
+      input_text: cleanName,
+      input_text_1: cleanPavilion,
+      submission_type: 'Pavilion Exhibit Idea',
     });
 
     const postBody = new URLSearchParams({
