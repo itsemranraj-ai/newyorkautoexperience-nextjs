@@ -256,7 +256,21 @@ export default function ExhibitShowcase() {
         {/* Grid */}
         <div className="exhibits-grid">
           {filteredExhibits.map((exhibit) => (
-            <article className="exhibit-card" key={exhibit.id}>
+            <article 
+              className="exhibit-card" 
+              key={exhibit.id}
+              onClick={() => setSelectedExhibit(exhibit)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedExhibit(exhibit);
+                }
+              }}
+              style={{ cursor: 'pointer' }}
+              aria-label={`Open ${exhibit.title} lab guide and submit ideas`}
+            >
               <div className="exhibit-card-media">
                 <img src={exhibit.image} alt={exhibit.title} loading="lazy" />
                 <span className="exhibit-badge">{exhibit.badge}</span>
@@ -268,8 +282,12 @@ export default function ExhibitShowcase() {
                 <div className="exhibit-footer">
                   <span className="exhibit-stem-tag">{exhibit.stemPill}</span>
                   <button 
+                    type="button"
                     className="exhibit-link-btn"
-                    onClick={() => setSelectedExhibit(exhibit)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedExhibit(exhibit);
+                    }}
                   >
                     View Lab Guide &rarr;
                   </button>
