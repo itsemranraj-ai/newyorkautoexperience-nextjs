@@ -130,6 +130,53 @@ export const exhibitsData: Exhibit[] = [
 export default function ExhibitShowcase() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'future-tech' | 'engineering' | 'racing'>('all');
   const [selectedExhibit, setSelectedExhibit] = useState<Exhibit | null>(null);
+  const [ideaText, setIdeaText] = useState('');
+  const [visitorName, setVisitorName] = useState('');
+  const [visitorEmail, setVisitorEmail] = useState('');
+  const [isSubmittingIdea, setIsSubmittingIdea] = useState(false);
+  const [ideaSubmitted, setIdeaSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const handleIdeaSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!selectedExhibit || !ideaText.trim() || !visitorName.trim() || !visitorEmail.trim()) return;
+
+    setIsSubmittingIdea(true);
+    setSubmitError('');
+
+    try {
+      const res = await fetch('/api/submit-exhibit-idea', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          pavilionId: selectedExhibit.id,
+          pavilionTitle: selectedExhibit.title,
+          name: visitorName.trim(),
+          email: visitorEmail.trim(),
+          idea: ideaText.trim(),
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setIdeaSubmitted(true);
+        setIdeaText('');
+      } else {
+        setSubmitError(data.message || 'Failed to submit your idea. Please try again.');
+      }
+    } catch (err) {
+      setSubmitError('Network error. Please try again.');
+    } finally {
+      setIsSubmittingIdea(false);
+    }
+  };
+
+  const closeDialog = () => {
+    setSelectedExhibit(null);
+    setIdeaSubmitted(false);
+    setSubmitError('');
+    setIdeaText('');
+  };
 
   const filteredExhibits = activeFilter === 'all' 
     ? exhibitsData 
@@ -210,12 +257,12 @@ export default function ExhibitShowcase() {
 
       {/* Modal Dialog */}
       {selectedExhibit && (
-        <div className="modal-backdrop open" onClick={() => setSelectedExhibit(null)}>
+        <div className="modal-backdrop open" onClick={closeDialog}>
           <div className="modal-content-card" onClick={(e) => e.stopPropagation()}>
             <button 
               className="modal-close-btn" 
               aria-label="Close dialog"
-              onClick={() => setSelectedExhibit(null)}
+              onClick={closeDialog}
             >
               &times;
             </button>
@@ -234,10 +281,10 @@ export default function ExhibitShowcase() {
                 {selectedExhibit.fullDesc}
               </p>
               <div style={{ display: 'flex', gap: '12px' }}>
-                <Link href="/#stem-portal" className="btn btn-primary btn-sm" onClick={() => setSelectedExhibit(null)}>
+                <Link href="/#stem-portal" className="btn btn-primary btn-sm" onClick={closeDialog}>
                   Book Class Field Trip
                 </Link>
-                <button className="btn btn-secondary btn-sm" onClick={() => setSelectedExhibit(null)}>
+                <button className="btn btn-secondary btn-sm" onClick={closeDialog}>
                   Close
                 </button>
               </div>
