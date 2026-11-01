@@ -280,6 +280,116 @@ export default function ExhibitShowcase() {
               <p className="modal-text" style={{ margin: '16px 0 24px', lineHeight: 1.7 }}>
                 {selectedExhibit.fullDesc}
               </p>
+              {/* Exhibit Idea Submission Box (David Senator's Pavilion Enhancement) */}
+              <div style={{
+                margin: '24px 0',
+                padding: '20px',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '12px',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '1.25rem' }}>💡</span>
+                  <h4 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#FFF', margin: 0 }}>
+                    Have an idea for this Pavilion? Send in your exhibit ideas
+                  </h4>
+                </div>
+                <p style={{ fontSize: '0.85rem', color: '#94A3B8', margin: '0 0 16px', lineHeight: 1.5 }}>
+                  Help shape our permanent exhibits. Your suggestions go directly to Executive Director David Senator.
+                </p>
+
+                {ideaSubmitted ? (
+                  <div style={{
+                    padding: '14px',
+                    background: 'rgba(34, 197, 94, 0.12)',
+                    border: '1px solid rgba(34, 197, 94, 0.3)',
+                    borderRadius: '8px',
+                    color: '#4ADE80',
+                    fontSize: '0.9rem',
+                    textAlign: 'center',
+                  }}>
+                    ✓ Thank you, {visitorName}! Your ideas for {selectedExhibit.title} have been submitted.
+                  </div>
+                ) : (
+                  <form onSubmit={handleIdeaSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                      <input
+                        type="text"
+                        placeholder="Your Name *"
+                        required
+                        value={visitorName}
+                        onChange={(e) => setVisitorName(e.target.value)}
+                        style={{
+                          width: '100%',
+                          padding: '10px 14px',
+                          background: 'rgba(15, 23, 42, 0.8)',
+                          border: '1px solid rgba(255, 255, 255, 0.15)',
+                          borderRadius: '8px',
+                          color: '#FFF',
+                          fontSize: '0.9rem',
+                          outline: 'none',
+                        }}
+                      />
+                      <input
+                        type="email"
+                        placeholder="Your Email *"
+                        required
+                        value={visitorEmail}
+                        onChange={(e) => setVisitorEmail(e.target.value)}
+                        style={{
+                          width: '100%',
+                          padding: '10px 14px',
+                          background: 'rgba(15, 23, 42, 0.8)',
+                          border: '1px solid rgba(255, 255, 255, 0.15)',
+                          borderRadius: '8px',
+                          color: '#FFF',
+                          fontSize: '0.9rem',
+                          outline: 'none',
+                        }}
+                      />
+                    </div>
+                    <textarea
+                      placeholder={`Share your interactive exhibit concept, historic vehicle, or technology idea for ${selectedExhibit.title}...`}
+                      required
+                      rows={3}
+                      value={ideaText}
+                      onChange={(e) => setIdeaText(e.target.value)}
+                      style={{
+                        width: '100%',
+                        padding: '10px 14px',
+                        background: 'rgba(15, 23, 42, 0.8)',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        borderRadius: '8px',
+                        color: '#FFF',
+                        fontSize: '0.9rem',
+                        outline: 'none',
+                        resize: 'vertical',
+                      }}
+                    />
+                    {submitError && (
+                      <div style={{ color: '#F87171', fontSize: '0.85rem' }}>
+                        {submitError}
+                      </div>
+                    )}
+                    <button
+                      type="submit"
+                      disabled={isSubmittingIdea}
+                      className="btn btn-primary btn-sm"
+                      style={{
+                        alignSelf: 'flex-start',
+                        background: '#E11D48',
+                        borderColor: '#E11D48',
+                        color: '#FFF',
+                        cursor: isSubmittingIdea ? 'not-allowed' : 'pointer',
+                        opacity: isSubmittingIdea ? 0.7 : 1,
+                      }}
+                    >
+                      {isSubmittingIdea ? 'Submitting Idea...' : 'Submit Exhibit Idea →'}
+                    </button>
+                  </form>
+                )}
+              </div>
+
               <div style={{ display: 'flex', gap: '12px' }}>
                 <Link href="/#stem-portal" className="btn btn-primary btn-sm" onClick={closeDialog}>
                   Book Class Field Trip
