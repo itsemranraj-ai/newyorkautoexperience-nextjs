@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Format notes for David
+    // Format notes for David and Admin
     const formattedMessage = [
       `Pavilion: ${pavilionTitle} (ID: ${pavilionId || 'general'})`,
       `Submitted By: ${name} (${email})`,
@@ -30,21 +30,24 @@ export async function POST(request: Request) {
       'Source: Interactive 12 Pavilions Modal (newyorkautoexperience.org)',
     ].join('\n\n');
 
-    // Prepare payload for WordPress Fluent Forms
+    // Prepare payload for WordPress Fluent Forms (Form ID: 7 - Pavilion Exhibit Ideas)
     const formPayload = new URLSearchParams({
       names: String(name).trim(),
       name: String(name).trim(),
+      full_name: String(name).trim(),
       email: String(email).trim(),
       subject: `Exhibit Idea Submission: ${pavilionTitle}`,
       message: formattedMessage,
       description: formattedMessage,
       pavilion: String(pavilionTitle).trim(),
+      input_text: String(name).trim(),
+      input_text_1: String(pavilionTitle).trim(),
       submission_type: 'Pavilion Exhibit Idea (Visitor Engagement)',
     });
 
     const postBody = new URLSearchParams({
       action: 'fluentform_submit',
-      form_id: '1', // General Contact & Inquiries Form in Fluent Forms
+      form_id: '7', // Dedicated Pavilion Exhibit Ideas Form (Form 7)
       data: formPayload.toString(),
     });
 
@@ -61,7 +64,7 @@ export async function POST(request: Request) {
       });
 
       const rawText = await wpResponse.text();
-      console.log('Exhibit idea WP response:', rawText.substring(0, 200));
+      console.log('Exhibit idea WP response (Form 7):', rawText.substring(0, 200));
     } catch (wpErr) {
       console.warn('WP Forwarding notice (non-fatal):', wpErr);
     }
