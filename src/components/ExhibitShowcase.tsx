@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 
 export interface Exhibit {
@@ -130,6 +131,22 @@ export const exhibitsData: Exhibit[] = [
 export default function ExhibitShowcase() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'future-tech' | 'engineering' | 'racing'>('all');
   const [selectedExhibit, setSelectedExhibit] = useState<Exhibit | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (selectedExhibit) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedExhibit]);
   const [ideaText, setIdeaText] = useState('');
   const [visitorName, setVisitorName] = useState('');
   const [visitorEmail, setVisitorEmail] = useState('');
@@ -255,8 +272,8 @@ export default function ExhibitShowcase() {
         </div>
       </div>
 
-      {/* Modal Dialog */}
-      {selectedExhibit && (
+      {/* Modal Dialog - Portaled to document.body for top-level stacking */}
+      {mounted && selectedExhibit && typeof document !== 'undefined' && createPortal(
         <div className="modal-backdrop open" onClick={closeDialog}>
           <div className="modal-content-card" onClick={(e) => e.stopPropagation()}>
             <button 
@@ -400,7 +417,8 @@ export default function ExhibitShowcase() {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

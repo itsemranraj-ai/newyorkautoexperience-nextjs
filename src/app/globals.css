@@ -89,10 +89,13 @@ body {
 
 .announcement-bar,
 .site-header,
-main,
 .site-footer {
   position: relative;
   z-index: 1;
+}
+
+main {
+  position: relative;
 }
 
 img {
@@ -1100,11 +1103,14 @@ button.hero-visual-badge:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #000000CC;
-  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 99999;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 32px 16px;
+  overflow-y: auto;
 }
 
 .modal-backdrop.open {
@@ -1112,14 +1118,16 @@ button.hero-visual-badge:hover {
 }
 
 .modal-content-card {
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border-bright);
+  background-color: #0d121c;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-lg);
   max-width: 680px;
   width: 100%;
-  max-height: 90vh;
+  max-height: calc(100vh - 64px);
   overflow-y: auto;
   position: relative;
+  margin: auto;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9);
 }
 
 .modal-close-btn {
