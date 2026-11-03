@@ -132,14 +132,16 @@ export default function MissionPage() {
             </p>
           </div>
 
-          <div className="dual-charter-grid">
-            <div className="charter-card commercial">
-              <div className="charter-badge">Commercial Entity</div>
-              <h3 className="charter-title">Metropolitan New York Auto Experience Center</h3>
-              <p className="charter-text">
-                A world-class commercial automotive destination in the greater New York metropolitan area. Drives self-sustaining revenue through public admissions, dynamic simulators, motorsport showcases, and corporate hospitality.
-              </p>
-              <div style={{ marginTop: '25px', paddingTop: '20px', borderTop: '1px solid var(--color-border)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '32px', marginTop: '40px' }}>
+            <div className="charter-card commercial" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', margin: 0 }}>
+              <div>
+                <div className="charter-badge">Commercial Entity</div>
+                <h3 className="charter-title">Metropolitan New York Auto Experience Center</h3>
+                <p className="charter-text">
+                  A world-class commercial automotive destination in the greater New York metropolitan area. Drives self-sustaining revenue through public admissions, dynamic simulators, motorsport showcases, and corporate hospitality.
+                </p>
+              </div>
+              <div style={{ marginTop: 'auto', paddingTop: '20px', borderTop: '1px solid var(--color-border)' }}>
                 <strong style={{ color: '#FFFFFF', fontSize: '0.9rem' }}>Primary Role:</strong>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '4px' }}>
                   Generates sustainable enterprise revenue to underwrite, fuel, and amplify the educational foundation.
@@ -147,13 +149,15 @@ export default function MissionPage() {
               </div>
             </div>
 
-            <div className="charter-card nonprofit">
-              <div className="charter-badge nonprofit">501(c)(3) Nonprofit Public Charity</div>
-              <h3 className="charter-title">The New York Auto Experience Inc.</h3>
-              <p className="charter-text">
-                The dedicated educational foundation chartered to transform automotive science into accessible STEM curricula. Dedicated to ensuring that lack of personal financial means never prevents a curious child from learning.
-              </p>
-              <div style={{ marginTop: '25px', paddingTop: '20px', borderTop: '1px solid var(--color-border)' }}>
+            <div className="charter-card nonprofit" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', margin: 0 }}>
+              <div>
+                <div className="charter-badge nonprofit">501(c)(3) Nonprofit Public Charity</div>
+                <h3 className="charter-title">The New York Auto Experience Inc.</h3>
+                <p className="charter-text">
+                  The dedicated educational foundation chartered to transform automotive science into accessible STEM curricula. Dedicated to ensuring that lack of personal financial means never prevents a curious child from learning.
+                </p>
+              </div>
+              <div style={{ marginTop: 'auto', paddingTop: '20px', borderTop: '1px solid var(--color-border)' }}>
                 <strong style={{ color: '#FFFFFF', fontSize: '0.9rem' }}>Primary Role:</strong>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '4px' }}>
                   Targeting 500,000+ a year sponsored admissions and accredited STEM field trip experiences upon grand opening.
