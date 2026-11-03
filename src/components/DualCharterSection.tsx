@@ -13,21 +13,11 @@ export default function DualCharterSection() {
           </p>
         </div>
 
-        <div className="charter-cards-grid">
-          {/* Commercial Charter */}
-          <div className="charter-card">
-            <span className="charter-card-tag blue">Commercial Engine</span>
-            <h3>Metropolitan NY Experience Center</h3>
-            <p>
-              A flagship world-class automotive attraction in the greater New York metropolitan area. Drives revenue through public ticket admissions, high-fidelity driving simulators, racing showcases, corporate events, and brand sponsorships.
-            </p>
-            <p style={{ color: 'var(--color-text-dim)', fontSize: '0.88rem' }}>
-              Revenue generated directly offsets overhead, facility costs, and exhibition acquisitions.
-            </p>
-          </div>
+        <div className="charter-cards-grid" style={{ display: "flex", justifyContent: "center" }}>
+
 
           {/* Nonprofit Foundation */}
-          <div className="charter-card highlight-card">
+          <div className="charter-card highlight-card" style={{ maxWidth: "680px", width: "100%" }}>
             <span className="charter-card-tag red">Nonprofit Mission</span>
             <h3>The New York Auto Experience Inc. (501c3)</h3>
             <p>

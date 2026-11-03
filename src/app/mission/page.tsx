@@ -214,13 +214,7 @@ export default function MissionPage() {
               </p>
             </div>
 
-            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-              <div style={{ color: 'var(--color-success)', fontWeight: 700, marginBottom: '8px' }}>FIDUCIARY OVERSIGHT</div>
-              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>Independent Board</div>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
-                Governed by an independent Board of Trustees representing automotive pioneers, educators, and civic leaders.
-              </p>
-            </div>
+
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
