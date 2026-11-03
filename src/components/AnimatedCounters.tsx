@@ -12,10 +12,10 @@ interface MetricItem {
 }
 
 const metrics: MetricItem[] = [
-  { target: 2000000, label: 'Students Targeted', subtext: 'Comprehensive STEM outreach planned across America', suffix: '+', accentClass: 'accent-red' },
+  { target: 2000000, label: 'Students Targeted', subtext: 'Comprehensive STEM outreach planned across America', suffix: '+' },
   { target: 500000, label: 'Free Admissions a Year', subtext: 'Annual sponsored access targeted for Title 1 schools', suffix: '+ a year' },
-  { target: 15000000, label: 'Projected Annual Impact', subtext: 'Underwritten educational value upon full operations', prefix: '$', accentClass: 'accent-blue' },
-  { target: 12, label: 'Interactive Stations Planned', subtext: 'From autonomous AI navigation to EV powertrains', suffix: '+', accentClass: 'accent-amber' }
+  { target: 15000000, label: 'Projected Annual Impact', subtext: 'Underwritten educational value upon full operations', prefix: '$' },
+  { target: 12, label: 'Interactive Stations Planned', subtext: 'From autonomous AI navigation to EV powertrains', suffix: '+' }
 ];
 
 export default function AnimatedCounters() {

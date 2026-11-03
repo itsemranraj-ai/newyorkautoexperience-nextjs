@@ -205,17 +205,17 @@ button, input, select, textarea {
 }
 
 .announcement-bar a.announcement-link {
-  color: #F59E0B;
+  color: #38BDF8;
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 1px solid rgba(245, 158, 11, 0.5);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.5);
   padding-bottom: 1px;
   transition: all 0.2s ease;
 }
 
 .announcement-bar a.announcement-link:hover {
-  color: #FCD34D;
-  border-bottom-color: #FCD34D;
+  color: #7DD3FC;
+  border-bottom-color: #7DD3FC;
 }
 
 .pulse-red {
@@ -579,21 +579,15 @@ button.hero-visual-badge:hover {
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1;
-  color: var(--color-text-white);
+  color: #38BDF8;
   margin-bottom: 8px;
   letter-spacing: -0.02em;
 }
 
-.metric-number.accent-red {
-  color: var(--color-primary);
-}
-
-.metric-number.accent-blue {
-  color: var(--color-secondary);
-}
-
+.metric-number.accent-red,
+.metric-number.accent-blue,
 .metric-number.accent-amber {
-  color: var(--color-accent-amber);
+  color: #38BDF8;
 }
 
 .metric-label {
@@ -929,8 +923,9 @@ button.hero-visual-badge:hover {
 
 .charter-card-tag {
   display: inline-block;
-  background-color: var(--color-bg-main);
-  border: 1px solid var(--color-border);
+  background-color: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38BDF8;
   font-size: 0.75rem;
   font-weight: 700;
   padding: 4px 10px;
@@ -940,14 +935,11 @@ button.hero-visual-badge:hover {
   margin-bottom: 16px;
 }
 
-.charter-card-tag.red {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-}
-
+.charter-card-tag.red,
 .charter-card-tag.blue {
-  color: var(--color-secondary);
-  border-color: var(--color-secondary);
+  background-color: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #38BDF8;
 }
 
 .charter-card h3 {

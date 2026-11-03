@@ -82,19 +82,19 @@ export default function DonationEngine() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
             <div style={{ background: 'var(--color-bg-card)', border: '1px solid var(--color-border)', borderRadius: '8px', padding: '24px', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-primary)', marginBottom: '8px' }}>Center Development</div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#38BDF8', marginBottom: '8px' }}>Center Development</div>
               <div style={{ fontWeight: 700, color: '#FFF', marginBottom: '4px' }}>Physical Site &amp; Architecture</div>
               <div style={{ fontSize: '0.82rem', color: 'var(--color-text-dim)' }}>Accelerating site acquisition, planning, and immersive experience center design</div>
             </div>
 
             <div style={{ background: 'var(--color-bg-card)', border: '1px solid var(--color-border)', borderRadius: '8px', padding: '24px', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-secondary)', marginBottom: '8px' }}>Exhibits &amp; Labs</div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#38BDF8', marginBottom: '8px' }}>Exhibits &amp; Labs</div>
               <div style={{ fontWeight: 700, color: '#FFF', marginBottom: '4px' }}>STEM Stations &amp; Robotics</div>
               <div style={{ fontSize: '0.82rem', color: 'var(--color-text-dim)' }}>Engineering interactive kinetic dynos, EV technology labs, and STEM modules</div>
             </div>
 
             <div style={{ background: 'var(--color-bg-card)', border: '1px solid var(--color-border)', borderRadius: '8px', padding: '24px', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-accent-amber)', marginBottom: '8px' }}>Student Equity</div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#38BDF8', marginBottom: '8px' }}>Student Equity</div>
               <div style={{ fontWeight: 700, color: '#FFF', marginBottom: '4px' }}>Title 1 School Endowments</div>
               <div style={{ fontSize: '0.82rem', color: 'var(--color-text-dim)' }}>Establishing pre-opening district partnerships and sponsored ticket funds</div>
             </div>

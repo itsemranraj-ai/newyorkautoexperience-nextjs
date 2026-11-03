@@ -135,7 +135,7 @@ export default function MissionPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '32px', marginTop: '40px' }}>
             <div className="charter-card commercial" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', margin: 0 }}>
               <div>
-                <div className="charter-badge">Commercial Entity</div>
+                <span className="charter-card-tag">Commercial Entity</span>
                 <h3 className="charter-title">Metropolitan New York Auto Experience Center</h3>
                 <p className="charter-text">
                   A world-class commercial automotive destination in the greater New York metropolitan area. Drives self-sustaining revenue through public admissions, dynamic simulators, motorsport showcases, and corporate hospitality.
@@ -151,7 +151,7 @@ export default function MissionPage() {
 
             <div className="charter-card nonprofit" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', margin: 0 }}>
               <div>
-                <div className="charter-badge nonprofit">501(c)(3) Nonprofit Public Charity</div>
+                <span className="charter-card-tag">501(c)(3) Nonprofit Public Charity</span>
                 <h3 className="charter-title">The New York Auto Experience Inc.</h3>
                 <p className="charter-text">
                   The dedicated educational foundation chartered to transform automotive science into accessible STEM curricula. Dedicated to ensuring that lack of personal financial means never prevents a curious child from learning.

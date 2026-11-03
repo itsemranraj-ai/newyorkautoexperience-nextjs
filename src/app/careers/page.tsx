@@ -276,7 +276,7 @@ export default function CareersPage() {
         }
 
         .major p a {
-          color: #4acaa8;
+          color: #38BDF8;
           text-decoration: underline;
           font-weight: 600;
         }
@@ -302,8 +302,8 @@ export default function CareersPage() {
         }
 
         .collapsible-toggle.open {
-          border-left-color: #4acaa8;
-          background: rgba(255, 255, 255, 0.08);
+          border-left-color: #38BDF8;
+          background: rgba(56, 189, 248, 0.08);
         }
 
         .collapsible-content {
@@ -323,7 +323,7 @@ export default function CareersPage() {
         }
 
         .sub-toggle.open {
-          border-left-color: #4acaa8;
+          border-left-color: #38BDF8;
         }
 
         .sub-content {
@@ -338,7 +338,7 @@ export default function CareersPage() {
         }
 
         .sub-content a {
-          color: #4acaa8;
+          color: #38BDF8;
           text-decoration: none;
           font-weight: 600;
           font-size: 0.9rem;
@@ -352,9 +352,9 @@ export default function CareersPage() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          background: rgba(74, 202, 168, 0.15);
-          color: #4acaa8;
-          border: 1px solid rgba(74, 202, 168, 0.5);
+          background: rgba(56, 189, 248, 0.15);
+          color: #38BDF8;
+          border: 1px solid rgba(56, 189, 248, 0.5);
           border-radius: 4px;
           padding: 0 7px;
           margin-left: 8px;
@@ -368,18 +368,18 @@ export default function CareersPage() {
 
         .asterisk-btn:hover,
         .asterisk-btn.open {
-          background: #4acaa8;
+          background: #38BDF8;
           color: #0b0e14;
-          border-color: #4acaa8;
+          border-color: #38BDF8;
           transform: scale(1.1);
         }
 
         .career-notice-box {
           max-width: 720px;
           margin: 22px auto 0;
-          background: rgba(74, 202, 168, 0.08);
-          border: 1px solid rgba(74, 202, 168, 0.35);
-          border-left: 4px solid #4acaa8;
+          background: rgba(56, 189, 248, 0.08);
+          border: 1px solid rgba(56, 189, 248, 0.35);
+          border-left: 4px solid #38BDF8;
           border-radius: 6px;
           padding: 18px 22px;
           text-align: left;
@@ -428,7 +428,7 @@ export default function CareersPage() {
           font-size: 0.88rem;
           font-weight: 700;
           letter-spacing: 0.08em;
-          color: #4acaa8;
+          color: #38BDF8;
           text-align: right;
         }
       `}</style>
