@@ -183,7 +183,14 @@ export default function MissionPage() {
       </section>
 
       {/* Governance & Transparency */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-bg-card)' }}>
+      <section 
+        className="section-padding" 
+        style={{ 
+          backgroundColor: 'var(--color-bg-card)',
+          borderTop: '1px solid var(--color-border)',
+          borderBottom: '1px solid var(--color-border)'
+        }}
+      >
         <div className="container">
           <div className="section-header text-center">
             <span className="section-tag">Public Charity Accountability</span>
@@ -193,32 +200,30 @@ export default function MissionPage() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', marginTop: '40px' }}>
-            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-              <div style={{ color: 'var(--color-primary)', fontWeight: 700, marginBottom: '8px' }}>LEGAL STATUS</div>
-              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>501(c)(3) Public Charity</div>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginTop: '40px' }}>
+            <div style={{ background: 'var(--color-bg-main)', padding: '28px 24px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+              <div style={{ color: '#38BDF8', fontWeight: 700, fontSize: '0.82rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>LEGAL STATUS</div>
+              <div style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem' }}>501(c)(3) Public Charity</div>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px', lineHeight: 1.6 }}>
                 Organized exclusively for educational and charitable purposes under the US Internal Revenue Code.
               </p>
             </div>
 
-            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-              <div style={{ color: 'var(--color-secondary)', fontWeight: 700, marginBottom: '8px' }}>FEDERAL TAX ID</div>
-              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>EIN: 922822778</div>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
+            <div style={{ background: 'var(--color-bg-main)', padding: '28px 24px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+              <div style={{ color: '#38BDF8', fontWeight: 700, fontSize: '0.82rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>FEDERAL TAX ID</div>
+              <div style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem' }}>EIN: 922822778</div>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px', lineHeight: 1.6 }}>
                 All contributions are tax-deductible to the full extent of the law for individuals and corporations.
               </p>
             </div>
 
-            <div style={{ background: 'var(--color-bg-main)', padding: '25px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-              <div style={{ color: 'var(--color-accent-amber)', fontWeight: 700, marginBottom: '8px' }}>FINANCIAL AUDIT</div>
-              <div style={{ color: '#FFFFFF', fontWeight: 600 }}>Public Form 990</div>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px' }}>
+            <div style={{ background: 'var(--color-bg-main)', padding: '28px 24px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+              <div style={{ color: '#38BDF8', fontWeight: 700, fontSize: '0.82rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>FINANCIAL AUDIT</div>
+              <div style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.1rem' }}>Public Form 990</div>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: '8px', lineHeight: 1.6 }}>
                 Annual independent financial audits and public IRS Form 990 disclosures published for total donor trust.
               </p>
             </div>
-
-
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '48px' }}>

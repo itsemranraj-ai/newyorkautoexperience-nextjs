@@ -609,8 +609,12 @@ button.hero-visual-badge:hover {
 }
 
 /* ==========================================================================
-   SECTION HEADERS
+   SECTION COMMON & HEADERS
    ========================================================================== */
+.section-padding {
+  padding: 90px 0 100px;
+}
+
 .section-header {
   margin-bottom: 48px;
 }
@@ -1462,6 +1466,9 @@ button.hero-visual-badge:hover {
 }
 
 @media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0 70px;
+  }
   .hero-section {
     padding: 36px 0 45px;
   }
