@@ -52,7 +52,7 @@ export default function MissionPage() {
                   priority
                 />
                 <div className="hero-visual-overlay">
-                  <span className="hero-visual-caption">Metropolitan New York Experience Center &bull; STEM Education Wing</span>
+                  <span className="hero-visual-caption">Automotive STEM Experience Wing</span>
                   <span className="hero-visual-badge">Mission in Action</span>
                 </div>
               </div>
