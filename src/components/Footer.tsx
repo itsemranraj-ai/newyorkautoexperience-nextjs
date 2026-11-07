@@ -81,7 +81,8 @@ export default function Footer() {
             <div style={{ marginTop: '16px', fontSize: '0.85rem', color: 'var(--color-text-dim)', lineHeight: 1.6 }}>
               <strong style={{ color: '#FFFFFF' }}>Headquarters:</strong><br />
               767 Broadway #1671, New York, NY 10003, USA<br />
-              Email: <a href="mailto:info@newyorkautoexperience.org" style={{ color: 'var(--color-primary)' }}>info@newyorkautoexperience.org</a>
+              Email: <a href="mailto:info@newyorkautoexperience.org" style={{ color: 'var(--color-primary)' }}>info@newyorkautoexperience.org</a><br />
+              Toll-Free: <a href="tel:18774116926" style={{ color: '#FFFFFF', fontWeight: 600, textDecoration: 'none' }}>1-877-411-NYAM <span style={{ color: 'var(--color-text-dim)', fontWeight: 400 }}>(6926)</span></a>
             </div>
           </div>
 
