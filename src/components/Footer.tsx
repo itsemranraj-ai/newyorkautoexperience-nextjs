@@ -78,11 +78,11 @@ export default function Footer() {
             <p>
               The New York Auto Experience Inc. is a registered 501(c)(3) public charity uniting automotive science, clean technology, and STEM education to ignite curiosity in the next generation.
             </p>
-            <div style={{ marginTop: '16px', fontSize: '0.85rem', color: 'var(--color-text-dim)', lineHeight: 1.6 }}>
-              <strong style={{ color: '#FFFFFF' }}>Headquarters:</strong><br />
-              767 Broadway #1671, New York, NY 10003, USA<br />
-              Email: <a href="mailto:info@newyorkautoexperience.org" style={{ color: 'var(--color-primary)' }}>info@newyorkautoexperience.org</a><br />
-              Toll-Free: <a href="tel:18774116926" style={{ color: '#FFFFFF', fontWeight: 600, textDecoration: 'none' }}>1-877-411-NYAM <span style={{ color: 'var(--color-text-dim)', fontWeight: 400 }}>(6926)</span></a>
+            <div style={{ marginTop: '16px', fontSize: '0.9rem', color: '#E2E8F0', lineHeight: 1.65 }}>
+              <strong style={{ color: '#FFFFFF', fontSize: '0.95rem' }}>Headquarters:</strong><br />
+              <span style={{ color: '#E2E8F0' }}>767 Broadway #1671, New York, NY 10003, USA</span><br />
+              <span style={{ color: '#CBD5E1' }}>Email: </span><a href="mailto:info@newyorkautoexperience.org" style={{ color: '#FB7185', fontWeight: 600 }}>info@newyorkautoexperience.org</a><br />
+              <span style={{ color: '#CBD5E1' }}>Toll-Free: </span><a href="tel:18774116926" style={{ color: '#FFFFFF', fontWeight: 700, textDecoration: 'none' }}>1-877-411-NYAM <span style={{ color: '#E2E8F0', fontWeight: 500 }}>(6926)</span></a>
             </div>
           </div>
 
@@ -115,7 +115,7 @@ export default function Footer() {
           {/* Col 4: Newsletter */}
           <div className="footer-col">
             <h5>Stay Connected</h5>
-            <p style={{ fontSize: '0.88rem', color: 'var(--color-text-muted)', marginBottom: '14px', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '0.9rem', color: '#E2E8F0', marginBottom: '14px', lineHeight: 1.6 }}>
               Receive updates on student workshops, free admission days, and exhibit expansions.
             </p>
             <form className="footer-newsletter-form" onSubmit={handleNewsletter}>
@@ -300,11 +300,11 @@ export default function Footer() {
             <span>501(c)(3) Nonprofit EIN: <strong style={{ color: '#FFF' }}>922822778</strong></span>
           </div>
           <div style={{ display: 'flex', gap: '20px' }}>
-            <Link href="/mission" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Our Mission</Link>
-            <Link href="/governance" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Governance</Link>
-            <Link href="/careers" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Careers</Link>
-            <Link href="/exhibits" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Exhibits</Link>
-            <Link href="/donate" style={{ color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>Donate</Link>
+            <Link href="/mission" style={{ color: '#CBD5E1', fontSize: '0.88rem' }}>Our Mission</Link>
+            <Link href="/governance" style={{ color: '#CBD5E1', fontSize: '0.88rem' }}>Governance</Link>
+            <Link href="/careers" style={{ color: '#CBD5E1', fontSize: '0.88rem' }}>Careers</Link>
+            <Link href="/exhibits" style={{ color: '#CBD5E1', fontSize: '0.88rem' }}>Exhibits</Link>
+            <Link href="/donate" style={{ color: '#CBD5E1', fontSize: '0.88rem' }}>Donate</Link>
           </div>
         </div>
       </div>
