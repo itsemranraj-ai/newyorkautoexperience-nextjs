@@ -81,7 +81,7 @@ export default function Footer() {
             <div style={{ marginTop: '16px', fontSize: '0.9rem', color: '#E2E8F0', lineHeight: 1.65 }}>
               <strong style={{ color: '#FFFFFF', fontSize: '0.95rem' }}>Headquarters:</strong><br />
               <span style={{ color: '#E2E8F0' }}>767 Broadway #1671, New York, NY 10003, USA</span><br />
-              <span style={{ color: '#CBD5E1' }}>Email: </span><a href="mailto:info@newyorkautoexperience.org" style={{ color: '#FB7185', fontWeight: 600 }}>info@newyorkautoexperience.org</a><br />
+              <span style={{ color: '#CBD5E1' }}>Email: </span><a href="mailto:info@newyorkautoexperience.org" style={{ color: '#FFFFFF', fontWeight: 600, textDecoration: 'none' }}>info@newyorkautoexperience.org</a><br />
               <span style={{ color: '#CBD5E1' }}>Toll-Free: </span><a href="tel:18774116926" style={{ color: '#FFFFFF', fontWeight: 700, textDecoration: 'none' }}>1-877-411-NYAM <span style={{ color: '#E2E8F0', fontWeight: 500 }}>(6926)</span></a>
             </div>
           </div>
