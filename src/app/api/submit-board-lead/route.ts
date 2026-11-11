@@ -1,11 +1,13 @@
 import { NextResponse } from 'next/server';
+import { submitToSalesforce } from '@/lib/salesforce';
+import { resolveLeadSource } from '@/lib/signupChannels';
 
 const WP_ENDPOINT = 'https://admin.newyorkautoexperience.org/wp-admin/admin-ajax.php';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, boardTier, background, commitments } = body;
+    const { name, email, phone, boardTier, background, commitments, linkedinUrl, leadSource } = body;
 
     // Basic Validation
     if (!name || !email || !phone) {
@@ -30,6 +32,9 @@ export async function POST(request: Request) {
       );
     }
 
+    const cleanLinkedin = String(linkedinUrl || '').trim();
+    const cleanLeadSource = resolveLeadSource(leadSource);
+
     // Map boardTier to exact valid Fluent Form 5 options
     let mappedTier = '$500 - Advisory Committee Board';
     const tierStr = String(boardTier || '');
@@ -44,8 +49,10 @@ export async function POST(request: Request) {
     }
 
     const backgroundNotes = [
+      `Lead Source: ${cleanLeadSource}`,
       `Tier Selected: ${boardTier || '$1,500 - Advisory Committee Board'}`,
       `Phone: ${phone}`,
+      `LinkedIn Profile (Q5): ${cleanLinkedin || 'Not provided'}`,
       background ? `Background / Bio: ${background}` : 'No additional bio provided',
       'Qualified: All 4 Board Criteria Confirmed'
     ].filter(Boolean).join('\n\n');
@@ -61,13 +68,16 @@ export async function POST(request: Request) {
       phone: String(phone).trim(),
       dropdown: mappedTier,
       board_tier: mappedTier,
+      linkedin_profile: cleanLinkedin || 'Not provided',
       description: backgroundNotes,
       background_notes: backgroundNotes,
       criteria_1: 'Agreed (Build New York Auto Museum Experience Center)',
       criteria_2: 'Agreed (Tax-deductible $1,500 - $5,000 donation request)',
       criteria_3: 'Agreed (Receive official 501(c)(3) tax receipt)',
       criteria_4: 'Agreed (Provide 2-paragraph website biography)',
-      submission_type: 'Committee Board Application (Google Ad Grants Funnel)',
+      criteria_5: `LinkedIn Profile: ${cleanLinkedin || 'Not provided'}`,
+      lead_source: cleanLeadSource,
+      submission_type: `Committee Board Application (${cleanLeadSource})`,
     });
 
     const postBody = new URLSearchParams({
@@ -93,6 +103,21 @@ export async function POST(request: Request) {
     } catch (wpErr) {
       console.warn('WP Forwarding notice (non-fatal):', wpErr);
     }
+
+    // Forward Lead to Salesforce Web-to-Lead
+    const nameParts = String(name).trim().split(/\s+/);
+    const firstName = nameParts[0] || 'Applicant';
+    const lastName = nameParts.slice(1).join(' ') || 'Lead';
+
+    await submitToSalesforce({
+      firstName,
+      lastName,
+      email: String(email).trim(),
+      phone: String(phone).trim(),
+      company: `Committee Board Applicant (${mappedTier})`,
+      leadSource: cleanLeadSource,
+      description: backgroundNotes,
+    });
 
     // Always return success to the qualified applicant
     return NextResponse.json({
