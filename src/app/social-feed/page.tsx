@@ -3,20 +3,20 @@ import type { Metadata } from 'next';
 import SocialFeedClient from '@/components/SocialFeedClient';
 
 export const metadata: Metadata = {
-  title: 'Social Feed Notice | The New York Auto Experience Inc.',
-  description: 'Curator free tier monthly visitor limit notice and direct social media channel links for The New York Auto Experience Inc.',
+  title: 'Official Social Feed & Live Media | New York Auto Experience',
+  description: 'Live multi-channel social feed streaming the latest photography, video documentaries, exhibits, and community updates from Instagram, YouTube, and Facebook.',
   openGraph: {
-    title: 'Social Feed Notice | The New York Auto Experience Inc.',
-    description: 'Curator free tier monthly visitor limit notice and official social channel links for The New York Auto Experience Inc.',
+    title: 'Social Feed & Live Media Hub | New York Auto Experience',
+    description: 'Explore live automotive moments and stories from the New York Auto Experience across Instagram, YouTube, and Facebook.',
     url: 'https://www.newyorkautoexperience.org/social-feed',
-    siteName: 'The New York Auto Experience Inc.',
+    siteName: 'New York Auto Experience',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Social Feed Notice | The New York Auto Experience Inc.',
-    description: 'Official social media channel links for The New York Auto Experience Inc.',
+    title: 'Social Feed | New York Auto Experience',
+    description: 'Live stream of automotive exhibits, heritage features, and community announcements.',
   },
 };
 
