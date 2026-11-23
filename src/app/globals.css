@@ -326,7 +326,7 @@ button, input, select, textarea {
   white-space: nowrap;
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1320px) {
   .site-header .brand-badge {
     display: none;
   }
@@ -1385,7 +1385,7 @@ button.hero-visual-badge:hover {
   }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1140px) {
   .site-header {
     height: 70px;
   }
