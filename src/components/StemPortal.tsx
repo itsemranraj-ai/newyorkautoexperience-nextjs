@@ -20,63 +20,23 @@ export default function StemPortal() {
     setLoading(true);
     setErrorMessage('');
 
-    const gradeLevelMap: Record<string, string> = {
-      'elementary': 'Elementary (Grades 3–5)',
-      'middle-school': 'Middle School (Grades 6–8)',
-      'high-school': 'High School (Grades 9–12)',
-      'college': 'Vocational / College',
-    };
-
-    const titleOneMap: Record<string, string> = {
-      'yes': 'Yes (Qualifies for 100% Free Sponsored Tickets)',
-      'no': 'No (Standard Educational Group Rate)',
-    };
-
     try {
-      const formPayload = new URLSearchParams({
-        school_name: formData.schoolName.trim(),
-        contact_name: formData.contactName.trim(),
-        email: formData.email.trim(),
-        dropdown: gradeLevelMap[formData.gradeLevel] || formData.gradeLevel,
-        student_count: formData.studentCount || '50',
-        title_one: titleOneMap[formData.titleOne] || formData.titleOne,
-      });
-
-      const postBody = new URLSearchParams({
-        action: 'fluentform_submit',
-        form_id: '3',
-        data: formPayload.toString(),
-      });
-
-      const response = await fetch('https://admin.newyorkautoexperience.org/wp-admin/admin-ajax.php', {
+      const response = await fetch('/api/submit-field-trip', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
-        body: postBody.toString(),
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
 
-      if (data.success) {
+      if (response.ok && data.success) {
         setSubmitted(true);
       } else {
-        const msg = data?.data?.result?.message || 'Submission could not be completed. Please check your information.';
-        setErrorMessage(msg);
+        setErrorMessage(data?.message || 'Submission could not be completed. Please check your information.');
       }
     } catch (err) {
-      try {
-        const fbRes = await fetch('/api/submit-field-trip', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
-        });
-        const fbData = await fbRes.json();
-        if (fbRes.ok && fbData.success) {
-          setSubmitted(true);
-          return;
-        }
-      } catch (_) {}
       setErrorMessage('Network connection error. Please try again.');
     } finally {
       setLoading(false);

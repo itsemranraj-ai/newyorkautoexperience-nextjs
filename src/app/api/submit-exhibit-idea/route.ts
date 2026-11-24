@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
+import { submitToSalesforce } from '@/lib/salesforce';
 
 const WP_ENDPOINT = 'https://admin.newyorkautoexperience.org/wp-admin/admin-ajax.php';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { pavilionId, pavilionTitle, name, email, idea } = body;
+    const { pavilionTitle, name, email, idea } = body;
 
     // Validation
     if (!pavilionTitle || !name || !email || !idea) {
@@ -56,11 +57,12 @@ export async function POST(request: Request) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
           'Cookie': 'hc_js_gate=1',
           'X-Requested-With': 'XMLHttpRequest',
         },
         body: postBody.toString(),
+        cache: 'no-store',
       });
 
       const rawText = await wpResponse.text();
@@ -69,9 +71,28 @@ export async function POST(request: Request) {
       console.warn('WP Forwarding notice (non-fatal):', wpErr);
     }
 
+    // Forward Exhibit Idea to Salesforce Web-to-Lead CRM
+    const nameParts = cleanName.split(/\s+/);
+    const firstName = nameParts[0] || 'Contributor';
+    const lastName = nameParts.slice(1).join(' ') || 'Idea';
+
+    await submitToSalesforce({
+      firstName,
+      lastName,
+      email: cleanEmail,
+      phone: '',
+      company: `Exhibit Idea (${cleanPavilion})`,
+      leadSource: 'Exhibit Idea',
+      description: [
+        `Pavilion: ${cleanPavilion}`,
+        `Exhibit Idea: ${cleanIdea}`,
+        'Source: The New York Auto Experience (.org /exhibits)',
+      ].join('\n\n'),
+    }).catch((err) => console.warn('[Salesforce Exhibit Idea] Forwarding error:', err));
+
     return NextResponse.json({
       success: true,
-      message: `Thank you, ${name}! Your exhibit ideas for ${pavilionTitle} have been forwarded to Executive Director David Senator.`,
+      message: `Thank you, ${cleanName}! Your exhibit ideas for ${cleanPavilion} have been forwarded to Executive Director David Senator.`,
     });
   } catch (error: any) {
     console.error('Error in submit-exhibit-idea API route:', error);
