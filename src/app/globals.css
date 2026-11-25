@@ -1875,3 +1875,41 @@ button.hero-visual-badge:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   SOCIAL FEED NOTICE PAGE (Curator Free Tier Limit Reached)
+   ========================================================================== */
+.social-notice-section {
+  min-height: calc(100vh - 220px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 24px 88px;
+  background-color: var(--color-bg-subtle);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.social-notice-card {
+  width: 100%;
+  max-width: 780px;
+  background-color: var(--color-bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--color-border-bright);
+  border-top: 3px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 48px 42px 44px;
+  text-align: center;
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.55);
+}
+
+@media (max-width: 640px) {
+  .social-notice-section {
+    min-height: auto;
+    padding: 44px 16px 56px;
+  }
+
+  .social-notice-card {
+    padding: 34px 20px 30px;
+  }
+}
