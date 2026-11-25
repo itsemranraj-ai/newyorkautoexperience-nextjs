@@ -75,8 +75,20 @@ export default function DonationEngine() {
           />
         </div>
 
-        <p className="donation-legal-note" style={{ textAlign: 'center', marginTop: '24px', color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>
-          Federal Tax EIN: <strong style={{ color: '#FFF' }}>922822778</strong> &bull; The New York Auto Experience Inc. is recognized by the IRS as an exempt public charity under Section 501(c)(3). Contributions are tax-deductible to the fullest extent permitted by law.
+        <p
+          className="donation-legal-note"
+          style={{
+            textAlign: 'center',
+            margin: '28px auto 0',
+            maxWidth: '820px',
+            color: '#CBD5E1',
+            fontSize: '1.02rem',
+            lineHeight: 1.75,
+          }}
+        >
+          Federal Tax EIN: <strong style={{ color: '#FFFFFF' }}>922822778</strong> &bull; The New York Auto Experience Inc. is recognized by the IRS as an exempt public charity under Section 501(c)(3).
+          <br />
+          Contributions are tax-deductible to the fullest extent permitted by law.
         </p>
 
         {/* Allocation Transparency Breakdown */}
