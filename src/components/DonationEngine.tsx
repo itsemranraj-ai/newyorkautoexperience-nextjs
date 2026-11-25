@@ -6,37 +6,45 @@ export default function DonationEngine() {
   const zeffyUrl = "https://www.zeffy.com/embed/donation-form/donate-to-make-a-difference-14593?donate=true";
 
   return (
-    <section className="donation-section" id="donate">
+    <section className="donation-section" id="donate" style={{ paddingTop: '56px' }}>
       <div className="container">
-        <div className="section-header text-center">
-          <span className="section-tag">100% Fee-Free Platform</span>
-          <h2 className="section-title">Fuel the Next Generation of Innovators</h2>
-          <p className="section-subtitle">
-            100% of your tax-deductible contribution directly supports our foundation's active development, future exhibit buildout, and sponsored Title 1 STEM admissions in New York.
-          </p>
-        </div>
-
-        {/* Donor Tip Guidance Note */}
+        {/* Prominent Donor Tip Guidance Note */}
         <div
           style={{
-            maxWidth: '580px',
-            margin: '0 auto 20px auto',
-            padding: '14px 18px',
-            borderRadius: '12px',
-            backgroundColor: 'rgba(255, 255, 255, 0.04)',
-            border: '1px solid rgba(255, 255, 255, 0.12)',
+            maxWidth: '720px',
+            margin: '0 auto 32px auto',
+            padding: '28px 32px',
+            borderRadius: '16px',
+            backgroundColor: 'rgba(18, 24, 36, 0.94)',
+            backdropFilter: 'blur(14px)',
+            WebkitBackdropFilter: 'blur(14px)',
+            border: '1px solid rgba(56, 189, 248, 0.45)',
+            borderTop: '3px solid var(--color-primary)',
+            boxShadow: '0 20px 44px rgba(0, 0, 0, 0.5)',
             display: 'flex',
             alignItems: 'flex-start',
-            gap: '12px',
+            gap: '18px',
             boxSizing: 'border-box',
           }}
         >
-          <span style={{ fontSize: '1.25rem', lineHeight: 1, flexShrink: 0, marginTop: '2px' }}>💡</span>
-          <div style={{ fontSize: '0.85rem', lineHeight: 1.55, color: 'var(--color-text-muted)' }}>
-            <strong style={{ color: '#FFFFFF', display: 'block', marginBottom: '2px' }}>
+          <span style={{ fontSize: '2.1rem', lineHeight: 1, flexShrink: 0, marginTop: '2px' }} aria-hidden="true">💡</span>
+          <div style={{ fontSize: '1.12rem', lineHeight: 1.65, color: '#E2E8F0' }}>
+            <strong
+              style={{
+                fontFamily: 'var(--font-family-display)',
+                fontSize: '1.45rem',
+                fontWeight: 800,
+                color: '#FFFFFF',
+                display: 'block',
+                marginBottom: '10px',
+                letterSpacing: '-0.015em',
+              }}
+            >
               Donor Note Regarding Platform Tip:
             </strong>
-            Zeffy is a 100% free platform for our charity that charges $0 processing fees. The platform tip prompt at checkout is completely optional—you can easily set it to <span style={{ color: '#FFFFFF', fontWeight: 600 }}>$0.00</span> by selecting <span style={{ color: '#FFFFFF', fontWeight: 600 }}>&ldquo;Other&rdquo;</span> from the contribution dropdown.
+            Zeffy is a 100% free platform for our charity that charges $0 processing fees. The platform tip prompt at checkout is completely optional—you can easily set it to{' '}
+            <span style={{ color: '#38BDF8', fontWeight: 700 }}>$0.00</span> by selecting{' '}
+            <span style={{ color: '#FFFFFF', fontWeight: 700 }}>&ldquo;Other&rdquo;</span> from the contribution dropdown.
           </div>
         </div>
 
@@ -68,7 +76,7 @@ export default function DonationEngine() {
         </div>
 
         <p className="donation-legal-note" style={{ textAlign: 'center', marginTop: '24px', color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>
-          Federal Tax EIN: <strong style={{ color: '#FFF' }}>922822778</strong> &bull; The New York Auto Experience Inc. is recognized by the IRS as an exempt public charity under Section 501(c)(3). 100% of your donation is tax-deductible.
+          Federal Tax EIN: <strong style={{ color: '#FFF' }}>922822778</strong> &bull; The New York Auto Experience Inc. is recognized by the IRS as an exempt public charity under Section 501(c)(3). Contributions are tax-deductible to the fullest extent permitted by law.
         </p>
 
         {/* Allocation Transparency Breakdown */}
