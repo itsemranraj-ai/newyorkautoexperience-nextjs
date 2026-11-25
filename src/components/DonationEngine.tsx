@@ -88,7 +88,7 @@ export default function DonationEngine() {
         >
           Federal Tax EIN: <strong style={{ color: '#FFFFFF' }}>922822778</strong> &bull; The New York Auto Experience Inc. is recognized by the IRS as an exempt public charity under Section 501(c)(3).
           <br />
-          Contributions are tax-deductible to the fullest extent permitted by law.
+          Contributions are tax-deductible.
         </p>
 
         {/* Allocation Transparency Breakdown */}

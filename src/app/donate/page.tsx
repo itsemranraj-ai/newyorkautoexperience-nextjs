@@ -4,7 +4,7 @@ import DonationEngine from '@/components/DonationEngine';
 
 export const metadata: Metadata = {
   title: 'Donate & Support STEM Education | The New York Auto Experience Inc.',
-  description: 'Support hands-on STEM education and free museum admissions for over 2 million New York and American students. Tax-deductible 501(c)(3) to the fullest extent permitted by law. EIN: 922822778.',
+  description: 'Support hands-on STEM education and free museum admissions for students across the New York tri-state area. Tax-deductible 501(c)(3) public charity. EIN: 922822778.',
 };
 
 export default function DonatePage() {

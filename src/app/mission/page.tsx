@@ -25,7 +25,7 @@ export default function MissionPage() {
                 Our Mission of <span className="highlight">Impact</span> &amp; Inspiration.
               </h1>
               <p className="hero-description">
-                "The mission of the New York Auto Experience Inc. Nonprofit is to create a world-class STEM based education experience for millions of students across America. These automotive based experiences are designed to <strong>educate, enlighten and entertain</strong>."
+                "The mission of the New York Auto Experience Inc. Nonprofit is to create a world-class STEM based education experience for millions of students across the New York tri-state area. These automotive based experiences are designed to <strong>educate, enlighten and entertain</strong>."
               </p>
               <div className="hero-cta-group">
                 <a href="#three-pillars" className="btn btn-primary btn-lg">

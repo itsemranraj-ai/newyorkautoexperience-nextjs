@@ -120,7 +120,7 @@ export const defaultSiteContent: SiteContent = {
 
   kpi1_target: 2000000,
   kpi1_label: 'Students Targeted',
-  kpi1_subtext: 'Comprehensive STEM outreach in NY and nationwide',
+  kpi1_subtext: 'Comprehensive STEM outreach planned within 100 miles of New York City',
   kpi2_target: 500000,
   kpi2_label: 'Tickets Donated Annually',
   kpi2_subtext: 'Free admission granted to public schools & youth',
@@ -152,7 +152,7 @@ export const defaultSiteContent: SiteContent = {
 
   mission_hero_tag: '501(c)(3) Public Charity • EIN: 922822778',
   mission_hero_title: 'Our Mission of Impact & Inspiration.',
-  mission_hero_quote: '"The mission of the New York Auto Experience Inc. Nonprofit is to create a world-class STEM based education experience for millions of students across America. These automotive based experiences are designed to educate, enlighten and entertain."',
+  mission_hero_quote: '"The mission of the New York Auto Experience Inc. Nonprofit is to create a world-class STEM based education experience for millions of students across the New York tri-state area. These automotive based experiences are designed to educate, enlighten and entertain."',
 
   pillar1_title: '1. Educate',
   pillar1_desc: 'Providing structured, hands-on STEM curriculum aligned with state physics and engineering standards. Students explore aerodynamics, regenerative electric powertrains, sensor fusion, and crash-test physics firsthand.',
